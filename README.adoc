@@ -1,0 +1,97 @@
+= 资源
+
+这里收集了一些用得到的资源
+
+== 频道
+
+* https://livecode.com[livecode]
+* https://www.youtube.com/channel/UC_jMDZX_-HTrFVX-UY0He0g[youtube live coding]
+* https://insights.dice.com/2017/07/17/watch-programmers-coding-live-online[watching live coding online]
+
+== 编程
+
+- https://leetcode.com[leetcode]
+- https://lifehacker.com/top-10-ways-to-teach-yourself-to-code-168425088[top 10 ways to teach yourself to code]
+- https://johnresig.com/blog/write-code-every-day[write code every day]-* https://www.dailycodingproblem.com[daily coding]
+
+== 官网
+
+- http://spring.io[Spring]
+- https://docs.jboss.org/author/display/WFLY10/Documentation[wildfly]
+
+== 技术站点
+
+- http://www.jobbole.com/[伯乐在线]
+- [ImportNew]
+- [oschina]
+- http://12factor.net/[12factor]
+- http://ifeve.com/overview[并发编程]
+- https://www.webjars.org[webjars]
+- https://www.baeldung.com[Baeldung]
+- https://developer.ibm.com[IBM Developer]
+
+== 博客
+
+- [mactalk]
+- [池一峰的博客]
+
+== 技术文章
+
+- http://www.cnblogs.com/skywang12345/p/3496098.html[并发]
+- http://ifeve.com/java-7-concurrency-cookbook[并发]
+- http://kb.cnblogs.com/page/539160[架构]
+- http://www.ibm.com/developerworks/cn/java/j-jtp06197.html[volatile使用]
+- http://my.oschina.net/zjzhai/blog/600430[puppet,chef,ansible]
+- https://en.wikipedia.org/wiki/Programming_paradigm[programming paradigm]
+
+== 源码学习
+
+- https://www.zhihu.com/question/19840538[JDK源码学习]
+- https://www.quora.com/How-can-I-learn-to-code-better-from-reading-source-code[source code reading]
+- https://softwareengineering.stackexchange.com/questions/38874/where-do-you-go-to-read-good-examples-of-source-code[read good source code]
+- https://softwareengineering.stackexchange.com/questions/121528/reading-source-code-to-learn[reading source code to learn]
+- https://www.microsoft.com/en-us/research/blog/learning-source-code[learn from source code]
+- http://chunhao.net/blog/tools-for-reading-source[tools for reading source code]
+
+== 教程
+
+- http://code.makery.ch/library/javafx-8-tutorial/zh-cn/part1[JavaFX]
+- http://blog.zhaiyifan.cn/2016/03/14/android-new-project-from-0-p1[Android]
+- http://www.w3schools.com[w3schools]
+
+== 工具包
+
+- http://ifeve.com/google-guava[guava]
+- https://jodd.org[jodd]
+
+== 工具
+
+- http://babun.github.io[babun]
+- http://asciiflow.com[asciiflow]
+- http://www.sqledit.com[DTM]
+
+== Design
+
+- http://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api[RESTful API]
+- https://medium.freecodecamp.org/how-to-write-a-good-software-design-document-66fcf019569c[how to write a good software design doc]
+
+== English
+
+- https://owl.purdue.edu/owl/english_as_a_second_language/esl_instructors_tutors/esl_teacher_resources/index.html[ESL Teach source]
+- http://www.stickyball.net/esl-writing-exercises-and-activities.html[ESL writing Exercises]
+- https://www.rong-chang.com/writing.htm[ESL Writing]
+- http://www.veryabc.cn[http://www.veryabc.cn]
+- http://avalon.law.yale.edu/subject_menus/inaug.asp[The Inaugural Addresses of the Presidents]
+
+== 微服务
+
+- https://smartbear.com/learn/api-design/what-are-microservices/
+- https://docs.microsoft.com/en-us/azure/architecture/guide/architecture-styles/microservices
+- https://microservices.io/
+- https://martinfowler.com/articles/microservices.html
+- https://microservices.io/patterns/microservices.html
+
+== 集散地
+
+- https://coolshell.cn/articles/1566.html[CheetSheet]
+- https://www.oschina.net/translate/best-websites-a-programmer-should-visit[学习CS的资源]
