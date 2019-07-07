@@ -1,0 +1,32 @@
+@startuml
+title mymoney
+
+class "账本" as account_book {
+    String title;
+    Date time; //创建时间
+    String keeper;
+}
+
+class "账目" as account_item {
+    String type;//类型:支出，收入
+    number amount;//金额
+    String title;//标题
+    String purpose;//用途: 消费、投资
+    String approach;//支付途径
+    String remark;//备注
+    Date time;
+}
+
+class "标签" as tag {
+    String name;//标签名
+}
+
+class "记账人" as recorder {
+    String openId;
+} 
+
+account_book "1" -- "*" account_item
+recorder "*" - "*" account_book
+recorder "1" - "*" account_item
+account_item "1" - "*" tag
+@enduml

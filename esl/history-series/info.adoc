@@ -1,0 +1,11 @@
+= 说明
+
+这是VOA "the making of a nation"系列，资源可以在http://www.manythings.org/voa/history/[这里]找到
+
+== 搜索
+
+"site:learningenglish.voanews.com" "THE MAKING OF A NATION #2"
+
+== 系列
+
+https://learningenglish.voanews.com/z/979/2018/2/20?p=80

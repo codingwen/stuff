@@ -82,6 +82,7 @@
 - https://www.rong-chang.com/writing.htm[ESL Writing]
 - http://www.veryabc.cn[http://www.veryabc.cn]
 - http://avalon.law.yale.edu/subject_menus/inaug.asp[The Inaugural Addresses of the Presidents]
+- http://www.manythings.org/[ManyThings]
 
 == 微服务
 
@@ -95,3 +96,13 @@
 
 - https://coolshell.cn/articles/1566.html[CheetSheet]
 - https://www.oschina.net/translate/best-websites-a-programmer-should-visit[学习CS的资源]
+
+== 算法
+
+- https://medium.com/coderbyte/how-to-get-good-at-algorithms-data-structures-d33d5163353f
+- https://www.techiedelight.com/find-pair-with-given-sum-array/
+- https://medium.com/@codingfreak/500-data-structures-and-algorithms-practice-problems-35afe8a1e222
+- https://github.com/PerthCharles/Coding
+- https://github.com/in28minutes/java-best-practices
+- https://towardsdatascience.com/10-common-software-architectural-patterns-in-a-nutshell-a0b47a1e9013
+- 
