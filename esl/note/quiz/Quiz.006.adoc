@@ -1,0 +1,114 @@
+:lang: zh-CN
+:encoding: utf-8
+:sectnums:
+:toc: left
+:toc-title: 目录
+:nofooter:
+:last-update-label!:
+
+= Quiz.006
+
+2019.10.24
+
+== 每日一句
+
+[quote,《华尔街》]
+____
+Money is not the prime asset in life, time is.
+____
+
+== 音标
+
+include::../phonetic-desc.adoc[]
+
+**练习**
+
+##Sentence 1##: ``This micro computer operates as though it had been repaired.``
+
+##Sentence 2##: ``All bodies consist of mlecules and these of atoms..``
+
+##Sentence 3##: ``Conductors conduct electricity, while insulators do not..``
+
+
+=== 请根据音标写出对应的句子
+
+##Phonetic Symbol 1##: ``ðɪs ˈsʌbstəns dʌz nɑt dɪˈzɑlv ɪn 'wɔtɚ ˈwɛðɚ ˈhitəd ɔr nɑt.``
+
+##Phonetic Symbol 2##: ``wɛn ju gɛt tə ðə mun ju kən ʤʌmp əˈbaʊt sɪks taɪmz əz haɪ.``
+
+##Phonetic Symbol 3##: ``ɪˈlɛktrɪk 'kɝənt kən bi trænˈsmɪtɪd frʌm ə ˈpaʊɚ ˈsteʃən tə wɛr ˈnidəd. ``
+
+
+[appendix]
+== 昨天答案
+
+##Phonetic Symbol 1##: ``Whenever you may go, you will find him at work.``
+
+##Phonetic Symbol 2##: ``Evaporation is considered a physical process``
+
+##Phonetic Symbol 3##: ``Suppose you had a sum of money, what would you do with it``
+
+
+[appendix]
+== 英语怎么说
+
+=== 你完蛋了
+
+
+.You are toast
+====
+`be toast` 意思是 `be in a lot trouble`： 麻烦大了
+
+.例句
+[source]
+--
+I'm toast! I didn't study for the test!
+--
+====
+
+
+.You are screwed
+====
+`be screwed` 意思是 搞砸了，一般用在熟人之间
+
+.例句
+[source]
+--
+If you don't get this finished on time, you're screwed.
+--
+====
+
+
+.You are dead
+====
+同样是麻烦大了的意思
+
+.例句
+[source]
+--
+A: I forget my girlfriend's birthday. I didn't get any gifts
+B: You're dead
+--
+====
+
+.You are done
+====
+同样是麻烦大了的意思
+
+.例句
+[source]
+--
+But if it's the truth, you're dead
+--
+====
+
+.You are in deep shit
+====
+从字面看就不是好事
+
+.例句
+[source]
+--
+He is in deep shit because his boss saw him stealing office supplies.
+--
+====

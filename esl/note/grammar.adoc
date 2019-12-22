@@ -1,0 +1,57 @@
+:lang: zh-CN
+:encoding: utf-8
+:sectnums:
+:toc: left
+:toc-title: 目录
+:nofooter:
+:last-update-label!:
+
+= 语法
+
+== 词法
+
+=== 十大词类
+
+. 名词(noun, 缩写 `n.`)
+. 代词(pronoun, 缩写 `pron.`)
+. 形容词(adjective, 缩写 `adj.`)
+. 数词(numeral, 缩写 `num.`)
+. 动词(verb, 缩写 `v.`)
+. 副词(adverb, 缩写 `art.`)
+. 冠词(article, 缩写 `art.`)
+. 介词(preposition, 缩写 `prep.`)
+. 连词(conjunction, 缩写 `conj.`)
+. 感叹词(interjection, 缩写 `int.`)
+
+=== 名词
+
+==== 分类
+
+. 专有名词
+. 通用名词
+. 抽象名词
+
+== 句法
+
+=== 句子成分
+
+. 主语
+. 谓语动词
+. 表语
+. 宾语
+. 定语
+. 状语
+
+=== 句子结构
+
+==== 结构划分
+
+. 简单句
+. 复合句
+. 并列句
+
+==== 用途划分
+
+.陈述句
+.疑问句
+.祈使句

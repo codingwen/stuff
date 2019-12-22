@@ -1,0 +1,32 @@
+:lang: zh-CN
+:encoding: utf-8
+:sectnums:
+:toc: left
+:toc-title: 目录
+:nofooter:
+:last-update-label!:
+
+= Quiz.003
+
+2019.10.16
+
+== 音标
+
+include::../phonetic-desc.adoc[]
+
+**练习**
+
+##Sentence 1##: ``John is slow at understanding, but you have to be patient with him.``
+
+##Sentence 2##: ``She is angry with her child.``
+
+##Sentence 3##: ``They were angry at being asked such a question.``
+
+
+=== 请根据音标写出对应的句子
+
+##Phonetic Symbol 1##: ``aɪ no ˈnʌθɪŋ əˈbaʊtɪm ɪkˈsɛpt ðət hi lɪvz nɛkst dɔr.``
+
+##Phonetic Symbol 2##: ``hi əˈgriz ɑn ɪt ðət aɪ ʃəl goʊ tə ˌbeɪʒˈɪŋ ɑn ˈbɪznəs.``
+
+##Phonetic Symbol 3##: ``aɪ ˈkænɑt ʧuz bət tə go ðɛr baɪ ɛr.``

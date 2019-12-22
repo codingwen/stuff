@@ -1,0 +1,581 @@
+
+= 每周词汇(2019年42周)
+
+.化妆品{counter2:index:0}
+[cols="1,4,4,4", options="header"]
+|===
+|序号
+|词汇
+|音标
+|汉意
+
+|{counter:index}
+|powder
+|/'paʊdɚ/
+|粉
+
+|{counter:index}
+|puff
+|/pʌf/
+|喷出
+
+|{counter:index}
+|powder puff
+|/'paʊdɚ/ /pʌf/
+|粉扑
+
+|{counter:index}
+|sponge
+|/spʌndʒ/
+|海绵
+
+|{counter:index}
+|sponge puff
+|/spʌndʒ/  /pʌf/
+|海绵扑
+
+|{counter:index}
+|brow
+|/braʊ/
+|眉、眉毛
+
+|{counter:index}
+|brow brush
+|/braʊ/ /brʌʃ/
+|眉刷
+
+|{counter:index}
+|brow powder
+|/braʊ/ /'paʊdɚ/
+|眉粉
+
+|{counter:index}
+|brow template
+|/braʊ/ /'tɛmplet/
+|描眉卡
+
+|{counter:index}
+|lip
+|/lɪp/
+|唇
+
+|{counter:index}
+|lip brush
+|/lɪp/ /brʌʃ/
+|唇刷
+
+|{counter:index}
+|gloss
+|/ɡlɔs/
+|光彩
+
+|{counter:index}
+|lip gloss
+|/lɪp/ /ɡlɔs/
+|唇彩
+
+|{counter:index}
+|liner
+|/'laɪnɚ/
+|用于划线的
+
+|{counter:index}
+|lip liner
+|/lɪp/ /'laɪnɚ/
+|唇线笔
+
+|{counter:index}
+|shadow
+|/'ʃædo/
+|影子
+
+|{counter:index}
+|eye shadow
+|/aɪ/ /'ʃædo/
+|眼影
+
+|{counter:index}
+|eye shadow brush
+|/aɪ/ /'ʃædo/ /brʌʃ/
+|眼影刷
+
+|{counter:index}
+|blush
+|/blʌʃ/
+|脸红
+
+|{counter:index}
+|blush brush
+|/blʌʃ/ /brʌʃ/
+|腮红刷
+
+|{counter:index}
+|cosmetics
+|/kɑz'mɛtɪks/
+|化妆品
+
+|{counter:index}
+|skin care
+|/sgin/ /kɛr/
+|护肤、护肤品
+
+|{counter:index}
+|hair product
+|/hɛr/ /'prɑdʌkt/
+|美发产品
+
+|{counter:index}
+|hairdressing
+|/ˈhɛrˌdrɛsɪŋ/
+|理发、理发业
+
+|{counter:index}
+|compact
+|/'kɑmpækt/
+|小粉盒
+
+|{counter:index}
+|milk
+|/mɪlk/
+|乳
+
+|{counter:index}
+|milky
+|/'mɪlki/
+|乳状的
+
+|{counter:index}
+|oily
+|/'ɔɪli/
+|油性的
+
+|{counter:index}
+|cream
+|/krim/
+|精华、面霜
+
+|{counter:index}
+|day cream
+|/krim/
+|日霜
+
+|{counter:index}
+|night cream
+|/krim/
+|晚霜
+
+|{counter:index}
+|eye cream
+|/krim/
+|眼霜
+
+|{counter:index}
+|sun screen
+|/skrin/
+|隔离霜
+
+|{counter:index}
+|sun block
+|/blɑk/
+|隔离霜
+
+|{counter:index}
+|waterproof
+|/'wɔtɚpruf/
+|防水
+
+|{counter:index}
+|facial
+|/'feʃl/
+|面部的，表面的
+
+|{counter:index}
+|spray
+|/spre/
+|喷雾、水沫
+
+|{counter:index}
+|facial spray
+|/'feʃl/ /spre/
+|面部喷雾、柔肤水
+
+|{counter:index}
+|cleanser
+|/'klɛnzɚ/
+|清洁剂 清洁工
+
+|{counter:index}
+|facial cleanser
+|/'feʃl/ /'klɛnzɚ/
+|洗面奶
+
+|{counter:index}
+|mist
+|/mɪst/
+|薄雾
+
+|{counter:index}
+|facial mist
+|/'feʃl/ /mɪst/
+|面部喷雾、柔肤水
+
+|{counter:index}
+|facial tissue
+|/'feʃl/ /'tɪʃu/
+|化妆纸
+
+|{counter:index}
+|toner
+|/'tonɚ/
+|爽肤水、柔肤水
+
+|{counter:index}
+|essence
+|/'ɛsns/
+|精华
+
+|{counter:index}
+|smoothing toner
+|/'smu:ðiŋ/ /'tonɚ/
+|爽肤水、柔肤水
+
+|{counter:index}
+|moisturizer
+|/'mɔɪstʃəraɪzɚ/
+|保湿霜
+
+|{counter:index}
+|gel
+|/dʒɛl/
+|凝胶、保湿霜
+
+|{counter:index}
+|lotion
+|/'loʃən/
+|露
+
+|{counter:index}
+|body lotion
+|/'bɑdi/ /'loʃən/
+|润肤露、沐浴露
+
+|{counter:index}
+|hand lotion
+|/hænd/ /'loʃən/
+|护手霜
+
+|{counter:index}
+|firm
+|/fɝm/
+|紧致、紧肤
+
+|{counter:index}
+|firming lotion
+|/fɝmiŋ/ /'loʃən/
+|紧肤乳液、紧肤水
+
+|{counter:index}
+|mask
+|/mæsk/
+|面膜
+
+|{counter:index}
+|eye mask
+|/aɪ/ /mæsk/
+|眼膜
+
+|{counter:index}
+|foam
+|/'fəum/
+|泡沫
+
+|{counter:index}
+|foaming
+|/'fəumiŋ/
+|发泡
+
+|{counter:index}
+|lash curler
+|/feswɑ∫/
+|睫毛夹
+
+|{counter:index}
+|pencil sharpener
+|/feswɑ∫/
+|转笔刀
+
+|{counter:index}
+|electric shaver
+|/feswɑ∫/
+|电动剃毛器
+
+|{counter:index}
+|roller
+|/'rolɚ/
+|卷毛器
+
+|{counter:index}
+|perm roller
+|/pɝm/ /'rolɚ/
+|卷发器
+
+|{counter:index}
+|facewash
+|/fes/ /wɑʃ/
+|洗面奶
+
+|{counter:index}
+|oil-absorbing sheet
+|/ɔɪl/ /əb'sɔrbɪŋ/ /ʃit/
+|吸油纸
+
+|{counter:index}
+|cotton pad
+|/ˈkɑtn/ /pæd/
+|化妆棉
+
+|{counter:index}
+|nail saver
+|/nel/ /'sevɚ/
+|护甲液
+
+|{counter:index}
+|hair accessory
+|/hɛr/ /ək'sɛsəri/
+|发饰
+
+|{counter:index}
+|shampoo
+|/ʃæm'pu/
+|洗发水、香波
+
+|{counter:index}
+|hair conditioner
+|/hɛr/ /kən'dɪʃənɚ/
+|护发素
+
+|{counter:index}
+|hairdressing gel
+|/ˈhɛrˌdrɛsɪŋ/ /dʒɛl/
+|焗油膏
+
+|{counter:index}
+|conditioning hairdressing
+|/kən'dɪʃənɪŋ/ /ˈhɛrˌdrɛsɪŋ/
+|焗油膏
+
+|{counter:index}
+|mousse
+|/mus/
+|慕斯、摩丝
+
+|{counter:index}
+|styling gel
+|/'staɪlɪŋ/ /dʒɛl/
+|发胶
+
+|{counter:index}
+|perming formula
+|/pɝmɪŋ/ /'fɔrmjələ/
+|冷烫水
+
+|{counter:index}
+|cosmetic brush
+|/kɑz'mɛtɪk/ /brʌʃ/
+|化妆笔、粉刷
+
+|{counter:index}
+|polish
+|/ˈpɑlɪʃ/
+|上光
+
+|{counter:index}
+|nail polish
+|/nel/ /ˈpɑlɪʃ/
+|指甲油
+
+|{counter:index}
+|nail polish remover
+|/nel/ /ˈpɑlɪʃ/ /rɪ'muvɚ/
+|去甲油
+
+|{counter:index}
+|makeup remover
+|/ˈmekˌʌp/ /rɪ'muvɚ/
+|卸妆水
+
+|{counter:index}
+|makeup removing lotion
+|/ˈmekˌʌp/ /rɪ'muvɚ/ /'loʃən/
+|卸妆乳
+
+|{counter:index}
+|matte
+|/mæt/
+|不光滑的、哑光
+
+|{counter:index}
+|translucent
+|/træns'lusnt/
+|透明
+
+|{counter:index}
+|translucent powder
+|/træns'lusnt/ /'paʊdɚ/
+|透明的蜜粉
+
+|{counter:index}
+|body wash
+|/'bɑdi/ /wɑ∫/
+|沐浴露
+
+|{counter:index}
+|astringent
+|/ə'strɪndʒənt/
+|爽肤水、化妆水
+
+|{counter:index}
+|emulsion
+|/ɪ'mʌlʃən/
+|乳液、乳胶
+
+|{counter:index}
+|foundation
+|/faʊn'deʃən/
+|粉底
+
+|{counter:index}
+|chapstick
+|/'tʃæpstik/
+|无色唇膏
+
+|{counter:index}
+|complexion
+|/kəm'plɛkʃən/
+|肤色、面色
+
+|{counter:index}
+|complexion mist
+|/kəm'plɛkʃən/ /mɪst/
+|爽肤水
+
+|{counter:index}
+|nutritious
+|/nʊ'trɪʃəs/
+|滋养
+
+|{counter:index}
+|repair
+|/rɪ'pɛr/
+|修复、护理
+
+|{counter:index}
+|trentment
+|/rɪ'pɛr/
+|修复、护理
+
+|{counter:index}
+|concealer
+|/kən'silɚ/
+|隐藏、隐瞒
+
+|{counter:index}
+|revitalite
+|/riˈvaɪtəlaɪt/
+|活化
+
+|{counter:index}
+|solvent
+|/'sɑlvənt/
+|溶解
+
+|{counter:index}
+|primer
+|/'praɪmɚ/
+|前引
+
+|{counter:index}
+|whitening
+|/'hwaɪtnɪŋ/
+|美白
+
+|{counter:index}
+|pack
+|/pæk/
+|一副、一捆、一片、一包等
+
+|{counter:index}
+|peeling
+|/'pilɪŋ/
+|剥离、剥落、薄皮
+
+|{counter:index}
+|scrub
+|/skrʌb/
+|擦洗
+
+|{counter:index}
+|pore
+|/pɔr/
+|小孔、气孔
+
+|{counter:index}
+|pore cleanser
+|/pɔr/ /'klɛnzɚ/
+|毛孔清洁剂、去黑头
+
+|{counter:index}
+|striper
+|/ˈstraɪpɚ/
+|剥落装置
+
+|{counter:index}
+|refining
+|/rɪ'faɪnɪŋ/
+|精炼
+
+|{counter:index}
+|striper pore refining
+|/ˈstraɪpɚ/ /pɔr/ /rɪ'faɪnɪŋ/
+|去黑头
+
+|{counter:index}
+|exfoliating
+|/ɛks'folɪetɪŋ/
+|去角质
+
+|{counter:index}
+|exfoliating scrub
+|/ɛks'folɪetɪŋ/ /skrʌb/
+|去角质、去死皮
+
+|{counter:index}
+|acne
+|/'ækni/
+|痤疮、粉刺
+
+|{counter:index}
+|Q-tips
+|q /tɪps/
+|棉签、棉棒
+
+|{counter:index}
+|duo
+|/'duo/
+|双、两个
+
+|{counter:index}
+|trio
+|/'trio/
+|仨、三个
+
+|{counter:index}
+|quad
+|/kwɑd/
+|四、四个
+
+|{counter:index}
+|hydra-
+|/ˈhaɪdrə/
+|保湿
+|===

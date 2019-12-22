@@ -1,0 +1,23 @@
+digraph concept {
+    ranksep=2; nodesep=.01; rankdir=RL;
+    {
+        node [shape=Mrecord height=2]
+        credit2 [label="<f0> asset(资产) | <f1> liability(负债) | <f2> expenses(支出)"]
+        debit2 [label="<f0> asset(资产) | <f1> liability(负债) | <f2> income(收入)"]
+        debit2:f0 -> credit2:f0 [color=red]
+        debit2:f0 -> credit2:f1 [color=red]
+        debit2:f0 -> credit2:f2 [color=red]
+        debit2:f1 -> credit2:f0 [color=green]
+        debit2:f1 -> credit2:f1 [color=green]
+        debit2:f1 -> credit2:f2 [color=green]
+        debit2:f2 -> credit2:f0 [color=blue]
+        debit2:f2 -> credit2:f1 [color=blue]
+        debit2:f2 -> credit2:f2 [color=blue]
+    }
+    {
+       node [shape=plaintext, fontsize=16]; 
+       debit [label="贷方(debit)"]
+       credit [label="借方(credit)"]
+       debit -> credit
+    }
+}

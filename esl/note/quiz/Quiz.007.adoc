@@ -1,0 +1,86 @@
+:lang: zh-CN
+:encoding: utf-8
+:sectnums:
+:toc: left
+:toc-title: 目录
+:nofooter:
+:last-update-label!:
+
+= Quiz.007
+
+2019.10.28
+
+== 每日一句
+
+[quote,《海洋奇缘》]
+____
+Sometimes, who we wish we were, what we wish we could do, is just not meant to be.
+
+有时候，我们总想着要做些大事，却忘了该做些什么。
+____
+
+== 音标
+
+include::../phonetic-desc.adoc[]
+
+**练习**
+
+##Sentence 1##: ``The software we developed last year can be used to control this process.``
+
+##Sentence 2##: ``Mechanical advantage is the number of times the resistance force is as great as the effort.``
+
+##Sentence 3##: ``Pilot disputes need to abort rescue in Iran.``
+
+
+=== 请根据音标写出对应的句子
+
+##Phonetic Symbol 1##: ``ɔl ðiz fækts wi hæv dɪˈskʌst, ænd ɑr ɪgˈzæmənd baɪ ˈɛvəri ˈpɝsən.``
+
+##Phonetic Symbol 2##: ``sʌm ˈbɪldɪŋ məˈtɪəriəlz sʌʧ æz səˈmɛnt ænd ˌriɪnˈfɔrsɪŋ bɑrz ɑr ˈwaɪdli juzd ɪn ˈkæpətəl kənˈstrʌkʃən.``
+
+##Phonetic Symbol 3##: ``ˈplæstɪks æz ə klæs ɑr nɑt ˈsutəbəl æz məˈtɪəiəlz tə ˈkæri ˈhɛvi ˈstrʌkʧərəl loʊdz. ``
+
+
+[appendix]
+== 昨天答案
+
+##Phonetic Symbol 1##: ``Whenever you may go, you will find him at work.``
+
+##Phonetic Symbol 2##: ``Evaporation is considered a physical process``
+
+##Phonetic Symbol 3##: ``Suppose you had a sum of money, what would you do with it``
+
+
+[appendix]
+== 英语怎么说
+
+=== 出去吃
+
+
+.eat out
+====
+不是outside
+
+.例句
+[source]
+--
+Let's eat out today
+--
+====
+
+=== 叫外卖
+
+.get/order delivery
+====
+
+.例句
+[source]
+--
+Let's get delivery.
+--
+
+[source]
+--
+We ordered pizza delivery for dinner yesterday.
+--
+====

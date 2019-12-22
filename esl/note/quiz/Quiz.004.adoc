@@ -1,0 +1,36 @@
+:lang: zh-CN
+:encoding: utf-8
+:sectnums:
+:toc: left
+:toc-title: 目录
+:nofooter:
+:last-update-label!:
+
+= Quiz.004
+
+2019.10.17
+
+== 音标
+
+
+include::../phonetic-desc.adoc[]
+
+
+
+**练习**
+
+##Sentence 1##: ``Essential English is a course for the teaching of English to foreign students.``
+
+##Sentence 2##: ``The pressure is perpendicular to the direction of motion.``
+
+##Sentence 3##: ``This firm is now more the 30 years in business.``
+
+
+=== 请根据音标写出对应的句子
+
+##Phonetic Symbol 1##: ``ðə blu wel kən gro tʊ ə lɛŋθ əvʌp tʊ 30 ˈmitɚz.``
+
+##Phonetic Symbol 2##: ``ðə rɪˈzʌlt əvɪz ɪkˈspɛrəmənt əz fɑr frəm ˌsætɪsˈfæktəri.``
+
+##Phonetic Symbol 3##: ``ɪˌlɛkˈtrɪsəti kən mekə məˈʃin rʌn. ``
+

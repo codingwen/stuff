@@ -1,0 +1,39 @@
+digraph concept {
+    ranksep=2; nodesep=1; rankdir=LR;
+    {
+        node [shape=Mrecord height=2]
+        account [label="<f0> mm_account(账户表) | <f1> id(主键) | <f2> type(类型)| 
+        <f3> title(账户名) | <f4> account_book_id(账本) |
+        <f5> for_debit(用于贷方) | <f6> for_credit(用于借方)| <f7> owner(账户主人) |
+        <f8> remark(备注) |
+        <f9> creator(创建人) | <f10> created_time(创建时间) | 
+        <f11> updator(更新人) | <f12> updated_time(更新时间)"]
+
+        account_item [label="<f0> mm_account_item(账目表) | <f1> id(主键) | 
+        <f2> account_book_id(账本) | <f3> title(名称) |
+        <f4> debit(贷方账户) | <f5> credit(借方账户)| <f6> amount(金额:分) |
+        <f7> timestamp(发生时间) | <f8> remark(备注) |
+        <f9> creator(创建人) | <f10> created_time(创建时间) | 
+        <f11> updator(更新人) | <f12> updated_time(更新时间)"]
+
+        account_book [label="<f0> mm_account_book(账本) | <f1> id(主键) | 
+        <f2> title(账本名) | 
+        <f3> remark(备注) |
+        <f4> creator(创建人) | <f5> created_time(创建时间) | 
+        <f6> updator(更新人) | <f7> updated_time(更新时间) | <f8> del_flag(删除标记)"]
+
+        accounter [label="<f0> mm_accounter(记账人) | <f1> id(主键) | 
+        <f2> open_id(记账人的open_id) | <f3> account_book_id(账本) |
+        <f4> is_owner(是账本所有人) |
+        <f5> creator(创建人) | <f6> created_time(创建时间) | 
+        <f7> updator(更新人) | <f8> updated_time(更新时间)"] 
+
+        account:f1 -> account_item:f4
+        account:f1 -> account_item:f5
+        account_book:f1 -> account_item:f2,accounter:f3,account:f4
+    }
+    {
+       node [shape=plaintext, fontsize=16, labelloc=c]; 
+       title [label="mymoney_v1.1" fontsize="32"]
+    }
+}

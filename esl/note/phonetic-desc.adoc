@@ -1,0 +1,10 @@
+
+NOTE:  本练习采用KK音标，请先不要借助任何词典
+
+=== 请写出句子对应的英标
+
+**示例**
+
+句子: ``Betty bought a bit of better butter.``
+
+音标: ``bɛtɪ bɔtə bɪtəv bɛtɝ bʌtɝ``

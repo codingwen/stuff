@@ -1,0 +1,353 @@
+== 音标
+
+
+NOTE: 英语音标体系有很多种。现今英语出版物基本上采用两个音标体系来标注单词的发音：美式英语的出版物用K.K.音标（John S. Kenyon & Thomas A. Knott姓氏首字母），英式英语的出版物用DJ音标（Daniel Jones）
+
+
+下面是整理的DJ和K.K.体系中的音标，主要区别在元音(vowel)，而辅音(consonant)是没有什么差别的。
+
+.短元音(DJ和K.K.音标对照)
+[cols="2,3,3,12", options="header"]
+|===
+|序号
+|DJ
+|K.K.
+|示例单词
+
+|1
+|/ɪ/
+|/ɪ/
+|s[big red]**i**t, w[big red]**i**n, f[big red]**i**sh
+
+.2+.^|2
+.2+.^|/ə/
+|/ə/
+|extr[big red]**a**, [big red]**a**long
+
+
+|/ɚ/
+|cent[big red]**er**, farm[big red]**er**, f[big red]**or**get
+
+.2+.^|3
+.2+.^|/ɒ/
+|/ɑ/
+|w[big red]**a**tch, h[big red]**o**t
+
+|/ɔ/
+|l[big red]**o**ng
+
+|4
+|/ʊ/
+|/ʊ/
+|b[big red]**oo**k, b[big red]**u**sh, g[big red]**oo**d
+
+.2+.^|5
+.2+.^|/ʌ/
+|/ʌ/
+|r[big red]**u**n, c[big red]**u**t, l[big red]**u**ck
+
+|/ə/
+|s[big red]**o**me
+
+|6
+|/e/
+|/ɛ/
+|r[big red]**e**d, ch[big red]**e**ck, gu[big red]**e**ss
+
+|7
+|/æ/
+|/æ/
+|l[big red]**a**mb, m[big red]**a**d, [big red]**a**pple
+|===
+
+
+.长元音(DJ和K.K.音标对照)
+[cols="2,3,3,12", options="header"]
+|===
+|序号
+|DJ
+|K.K.
+|示例单词
+
+|1
+|/i:/
+|/i/
+|[big red]**ea**t, s[big red]**ee**, s[big red]**ea**t
+
+|2
+|/ə:/
+|/ɝ/
+|h[big red]**er**, b[big red]**ir**d, h[big red]**ear**d
+
+|3
+|/ɔ:/
+|/ɔ/
+|w[big red]**al**k, c[big red]**al**l, fl[big red]**aw**
+
+|4
+|/u:/
+|/u/
+|t[big red]**oo**th, r[big red]**u**de, f[big red]**oo**d
+
+|5
+|/ɑ:/
+|/ɑ/
+|b[big red]**ar**, f[big red]**a**ther, p[big red]**al**m
+|===
+
+
+TIP: ##/ɚ/##和##/ɝ/##的区别就在于一个是短元音，一个是长元音，也就是重读和弱读的差别
+
+.双元音(DJ和K.K.音标对照)
+[cols="2,3,3,12", options="header"]
+|===
+|序号
+|DJ
+|K.K.
+|示例单词
+
+|1
+|/eɪ/
+|/e/
+|w[big red]**ai**t, l[big red]**a**te, f[big red]**a**mous
+
+|2
+|/aɪ/
+|/aɪ/
+|f[big red]**i**ght, fl[big red]**y**d, r[big red]**i**ce
+
+|3
+|/ɒɪ/
+|/ɔɪ/
+|j[big red]**oi**n, [big red]**oy**ster, p[big red]**oi**nt
+
+|4
+|/aʊ/
+|/aʊ/
+|n[big red]**ow**, t[big red]**ow**n, cr[big red]**ow**d
+
+|5
+|/əʊ/
+|/o/
+|kn[big red]**ow**, g[big red]**oa**t, c[big red]**o**de
+
+|6
+|/ɪə/
+|/ɪr/
+|b[big red]**eer**, sh[big red]**ear**, cl[big red]**ear**
+
+|7
+|/eə/
+|/ɛr/
+|b[big red]**ear**, f[big red]**are**, sh[big red]**are**
+
+|8
+|/ʊə/
+|/ʊr/
+|p[big red]**oor**, cr[big red]**ue**l, t[big red]**our**
+|===
+
+
+.辅音(清浊对照)
+[cols="2,2,2,8", options="header"]
+|===
+|序号
+|清辅音
+|浊辅音
+|示例单词
+
+|1
+|/p/
+|/b/
+|p[big red]**u**t, clu[big red]**b**
+
+|2
+|/t/
+|/d/
+|[big red]**t**wo, brea[big red]**d**
+
+|3
+|/k/
+|/g/
+|[big red]**k**ick, [big red]**g**asp
+
+|4
+|/f/
+|/v/
+|[big red]**f**rog, [big red]**v**ictory
+
+|5
+|/θ/
+|/ð/
+|pa[big red]**th**, tee[big red]**th**e
+
+|6
+|/s/
+|/z/
+|[big red]**s**ay, [big red]**z**ebra
+
+|7
+|/∫/
+|/ʒ/
+|cla[big red]**sh**, vi[big red]**si**on
+
+|8
+|/t∫/
+|/dʒ/
+|ri[big red]**ch**, ca[big red]**g**e
+|===
+
+TIP: 清音浊化: 在英音中，清音位于s之后，且该音节为重读，则清音浊化，比如 #spoon#, 实际发音是 #sboon#；而美音更进一步，当一个清音位于两个单元音之间时，清音浊化，比如 #letter# ，发音更接近 #ledder# 
+
+.其他辅音
+[cols="2,2,8", options="header"]
+|===
+|序号
+|音标
+|示例单词
+
+|1
+|/h/
+|[big red]**h**ate, [big red]**h**ut
+
+|2
+|/m/
+|[big red]**m**ud, co[big red]**mm**on
+
+|3
+|/n/
+|brai[big red]**n**, [big red]**n**ice
+
+|4
+|/ŋ/
+|i[big red]**n**k, ba[big red]**n**k
+
+|5
+|/l/
+|[big red]**l**ine, a[big red]**l**ive
+
+|6
+|/r/
+|[big red]**r**ain, [big red]**r**ead
+
+|7
+|/j/
+|bill[big red]**i**on, [big red]**y**outh
+
+|8
+|/w/
+|s[big red]**w**an, [big red]**w**ood
+
+|9
+|/dr/
+|[big red]**dr**ess, [big red]**dr**ug
+
+|10
+|/dz/
+|be[big red]**ds**, frien[big red]**ds**
+
+|11
+|/tr/
+|os[big red]**tr**ich, me[big red]**tr**ic
+
+|12
+|/ts/
+|ca[big red]**ts**, ea[big red]**ts**
+|===
+
+TIP: 通过以上可以知道，元音有20个。而根据传统语音学，辅音有28个，但现代语音学认为辅音有24个。其中表5的后4个辅音不是独立音素，而是辅音连缀。
+
+.常见发音相关单词
+[cols="1,4,4,4", options="header"]
+|===
+|序号
+|单词
+|音标
+|含义
+
+|1
+|accent
+|/'æksɛnt/
+|口音
+
+|2
+|pronunciation
+|/prə'nʌnsɪ'eʃən/
+|发音
+
+|3
+|vowel
+|/'vaʊəl/
+|元音
+
+|4
+|consonant
+|/'kɑnsənənt/
+|辅音
+
+|5
+|pitch
+|/pɪtʃ/
+|音高
+
+|6
+|intonation
+|/ˌɪntə'neʃən/
+|语调
+
+|7
+|phonetic
+|/fəˈnɛtɪk/
+|音标
+
+|8
+|stress
+|/strɛs/
+|重音
+
+|9
+|volume
+|/'vɑljum/
+|音量
+
+|10
+|syllable
+|/'sɪləbl/
+|音节
+
+|11
+|reduced sound
+|/ri'dju:st/
+|弱读音
+
+|12
+|schewa
+|/ʃwɑː/
+|音标/ə/
+
+|13
+|plosive
+|/'plosɪv/
+|爆破音
+
+|14
+|lateral
+|/'lætərəl/
+|侧音
+
+|15
+|nasal
+|/'nezl/
+|鼻音
+
+|16
+|liaison
+|/lɪ'ezɑn/
+|连音
+
+|17
+|glide
+|/ɡlaɪd/
+|滑音
+
+|===

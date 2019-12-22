@@ -1,0 +1,27 @@
+= Groovy 笔记
+
+== 介绍
+
+Java在计算机工业上取得了成功，它具有三个重要方面
+
+* JVM
+* JDK
+* JVM语言集
+
+Java语言年代已经久了，需要引入新语言的特性。
+
+那么Groovy呢？
+
+[quote]
+-- 
+The Groovy language is all of that—it’s lightweight, low-ceremony, dynamic, object-oriented, and runs on the JVM.
+-- 
+
+它吸收了其他一些语言的想法，诸如Smalltalk, Python, Ruby等。
+
+[list,version]
+--
+. 1.0, 2007, Jan,2
+. 2.0, 2012
+. 
+--

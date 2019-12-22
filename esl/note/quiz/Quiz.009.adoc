@@ -1,0 +1,68 @@
+:lang: zh-CN
+:encoding: utf-8
+:sectnums:
+:toc: left
+:toc-title: 目录
+:nofooter:
+:last-update-label!:
+
+= Quiz.009
+
+2019.11.05
+
+== 每日一句
+
+[quote,《越狱》]
+____
+Sometimes a man has to surrender to fate. See what it has in store for him.
+
+有时候，人不得不向命运低头，看看命运给他准备了什么。
+____
+
+== 音标
+
+include::../phonetic-desc.adoc[]
+
+**练习**
+
+##Sentence 1##: ``However hard I try, I cannot understand this question.``
+
+##Sentence 2##: ``The higher the temperature of the air, the more water vapor can it absorb.``
+
+##Sentence 3##: ``No method is known by which it is possible to create energy out of nothing.``
+
+
+=== 请根据音标写出对应的句子
+
+##Phonetic Symbol 1##: ``wi ˈstʌdi baɪ kəmˈpɛrɪŋ θɪŋz non wɪð θɪŋz ˌʌn'non.``
+
+##Phonetic Symbol 2##: ``hi ræn ˈɪntə ði ˈɔfɪs tə faɪnd ðə kɑz əv ðə ˈtrʌbəl əv ðə məˈʃin.``
+
+##Phonetic Symbol 3##: ``jə hæd ˈbɛtɝ klɪr ʌp ðɪs ˈprɑbləm. ``
+
+
+[appendix]
+== 昨天答案
+
+##Phonetic Symbol 1##: ``The thought came to him that the process should be conducted out of contact with the air.``
+
+##Phonetic Symbol 2##: ``The city of Shanghai has been greatly changed.``
+
+##Phonetic Symbol 3##: ``Our society has changed and so have the people in it. ``
+
+
+[appendix]
+== 英语怎么说
+
+=== 秋裤
+
+.thermal
+====
+bushi ``autumn pants`` 也不是 ``chill cool``
+
+.例句
+[source]
+--
+It's so cold I'm wearing two pairs of thermals
+--
+====

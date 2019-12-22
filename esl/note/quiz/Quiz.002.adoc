@@ -1,0 +1,34 @@
+:lang: zh-CN
+:encoding: utf-8
+:sectnums:
+:toc: left
+:toc-title: 目录
+:nofooter:
+:last-update-label!:
+
+= Quiz.002
+
+2019.10.15
+
+== 音标
+
+include::../phonetic-desc.adoc[]
+
+
+
+**练习**
+
+##Sentence 1##: ``I will never forget what happened yesterday.``
+
+##Sentence 2##: ``This spacecraft is rather smaller than I thought.``
+
+##Sentence 3##: ``The team is entirely composed of women.``
+
+
+=== 请根据音标写出对应的句子
+
+##Phonetic Symbol 1##: ``mɔr ðən wʌn ˈstudntəz ˈlɝnɪŋ tə ˈɑpəˌret ˈdɪfrənt taɪpsəv kəmˈpjutɝz.``
+
+##Phonetic Symbol 2##: ``ðə səˈmɛnt wɝksɝ  nɪr ðə ˈsteʃən``
+
+##Phonetic Symbol 3##: ``ˈɛvriˌθɪŋ əˈraʊndəs ɪz ˈmætɝ``

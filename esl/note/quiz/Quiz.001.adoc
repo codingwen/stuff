@@ -1,0 +1,34 @@
+:lang: zh-CN
+:encoding: utf-8
+:sectnums:
+:toc: left
+:toc-title: 目录
+:nofooter:
+:last-update-label!:
+
+= Quiz.001
+
+2019.10.14
+
+
+== 音标
+
+include::../phonetic-desc.adoc[]
+
+
+**练习**
+
+##Sentence 1##: ``That post fell vacant last year.``
+
+##Sentence 2##: ``Snow lay thick on the ground``
+
+##Sentence 3##: ``Did you buy a non-stick pan?``
+
+
+=== 请根据音标写出对应的句子
+
+##Phonetic Symbol 1##: ``ðɛr ɪz ə laɪt ɪn ðə rum. pliz tɝn ɪt ɑn.``
+
+##Phonetic Symbol 2##: ``laɪt ˈtrævəlz most ˈkwɪklɪ``
+
+##Phonetic Symbol 3##: ``ʃi wɝks ˈvɛri hɑrd``

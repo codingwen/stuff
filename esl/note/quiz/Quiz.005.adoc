@@ -1,0 +1,117 @@
+:lang: zh-CN
+:encoding: utf-8
+:sectnums:
+:toc: left
+:toc-title: 目录
+:nofooter:
+:last-update-label!:
+
+= Quiz.005
+
+2019.10.23
+
+== 每日一句
+
+[quote,万物理论]
+____
+However bad life may seem, there is always something you can do, and succeed at. While there is life, there is hope.
+____
+
+== 音标
+
+include::../phonetic-desc.adoc[]
+
+
+**练习**
+
+
+##Sentence 1##: ``Thinking and practicing make the English grammar ours.``
+
+##Sentence 2##: ``Now doctors can use e-mails to answer their patients' inquiries.``
+
+##Sentence 3##: ``Henry impressed us as very clever.``
+
+
+=== 请根据音标写出对应的句子
+
+##Phonetic Symbol 1##: ``wɛˈnɛvər ju me goʊ, ju wɪl faɪnd hɪm æt wɜrk.``
+
+##Phonetic Symbol 2##: ``ɪˌvæpəˈreʃən ɪz kən'sɪdɚd ə ˈfɪzɪkl ˈprɑˌsɛs``
+
+##Phonetic Symbol 3##: ``səˈpoz ju hædə sʌm əv ˈmʌni, wɑt wʊd ju du wɪð ɪt? ``
+
+[appendix]
+== 英语怎么说
+
+=== 不忍心
+
+
+.not have the heart (to do sth)
+====
+
+.例句
+[source]
+--
+She doesn't have the heart to tell him what happend to it.  
+
+她不忍心告诉他发生了什么
+--
+
+====
+
+
+.延伸
+****
+. have a good/kind heart 有一颗善良的心
+. have a heart of gold/stone 有金子般的心/铁石心肠 
+****
+
+=== (别)放在心上
+
+.take sth. to heart
+====
+.例句
+[source]
+--
+Don't take it to heart. He's that hard on everyone in the office. 
+
+别放心上，他对办公室里所有人都严厉
+--
+====
+
+
+.write it off/never mind
+====
+.例句
+[source]
+--
+* I am sorry for my fault.
+
+* Write it off / never mind
+--
+====
+
+=== 舍不得
+
+.can't bear to 
+====
+.例句
+[source]
+--
+Time flies. I can't bear to leave you.  
+
+时光流逝，我舍不得离开你
+--
+====
+
+
+.hate to 
+====
+.例句
+[source]
+--
+I hate to leave this place  
+
+我舍不得离开这里
+--
+====

@@ -1,0 +1,90 @@
+:lang: zh-CN
+:encoding: utf-8
+:sectnums:
+:toc: left
+:toc-title: 目录
+:nofooter:
+:last-update-label!:
+
+= Quiz.008
+
+2019.10.29
+
+== 每日一句
+
+[quote,《唐顿庄园》]
+____
+Sometimes we must endure a little pain, in order to achieve satisfaction.
+
+有时候，为了得到满足，总要忍受些许疼痛
+____
+
+== 音标
+
+include::../phonetic-desc.adoc[]
+
+**练习**
+
+##Sentence 1##: ``This automobile is running at a speed of 70 miles  an hour.``
+
+##Sentence 2##: ``This experiment leads to the conclusion that unlike charges attract each other.``
+
+##Sentence 3##: ``The fact that metals can be drawn into wires is known to us.``
+
+
+=== 请根据音标写出对应的句子
+
+##Phonetic Symbol 1##: ``ðə θɔt kem tə hɪm ðæt ðə ˈprɑˌsɛs ʃəd bi kənˈdʌktəd aʊt əv ˈkɑnˌtækt wɪð ði ɛr.``
+
+##Phonetic Symbol 2##: ``ðə ˈsɪti əv ˈʃæŋˈhaɪ hæz bɪn ˈgretli ʧenʤd.``
+
+##Phonetic Symbol 3##: ``ˈɑr səˈsaɪəti hæz ʧenʤd ænd so hæv ðə ˈpipəl ɪn ɪt. ``
+
+
+[appendix]
+== 昨天答案
+
+##Phonetic Symbol 1##: ``All these facts we have discussed, and are examined by every person``
+
+##Phonetic Symbol 2##: ``Some building materials such as cement and reinforcing bars are widely used in capital construction.``
+
+##Phonetic Symbol 3##: ``Plastics as a class are not suitable as materials to carry heavy structural loads.``
+
+
+[appendix]
+== 英语怎么说
+
+=== 我请客
+
+TIP: 可不是 ``I'll buy it``
+
+.It's on me
+====
+`on me` 意思是 我请客、算我头上
+
+.例句
+[source]
+--
+Ok, next time it's on me!
+--
+====
+
+
+.It's my treat
+====
+`treat` 做名词表示 ##请客、款待##
+
+.例句
+[source]
+--
+It's my treat, choose whatever you like.
+--
+====
+
+
+.bill
+====
+* I'll get the bill
+* I'll pay for the bill
+* Pick up the bill
+====

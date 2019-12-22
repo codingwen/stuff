@@ -1,0 +1,223 @@
+:lang: zh-CN
+:encoding: utf-8
+:sectnums:
+:toc: left
+:toc-title: 目录
+:nofooter:
+:last-update-label!:
+
+= Quiz.010
+
+2019.11.12
+
+== 每日一句
+
+[quote,《冰与火之歌》]
+____
+When you're nothing at all, there's no more reason to be afraid.
+
+当你狗屁都不是的时候，还有什么理由恐惧呢
+____
+
+== 音标
+
+include::../phonetic-desc.adoc[]
+
+
+**练习**
+
+##Sentence 1##: ``James ordered that everything should be ready before beginning the test.``
+
+##Sentence 2##: ``It is an honour that I was invited to your birthday party.``
+
+
+=== 请根据音标写出对应的句子
+
+##Phonetic Symbol 1##: ``aɪ wɪl ˈnɛvər fɚˈgɛt wɑt ˈhæpənd ˈjɛstɚˌde.``
+
+##Phonetic Symbol 2##: ``ðe wɚ ˈæŋgri ət ˈbiɪŋ æskt sʌʧ ə ˈkwɛsʧən.``
+
+== 句法
+
+=== 陈述、否定、疑问
+
+.Be动词
+****
+be动词存在多种词形变化，在现在时态中，分别是
+--
+. am
+. is
+. are
+--
+
+.. 它们对应的否定形式，及各自的缩写形式如下表
+
+.{blank}{counter2:index:0}
+[cols="1,2,2,2", options="header"]
+|===
+|be动词
+|缩写
+|否定
+|否定缩写
+
+|am
+|'m
+|am not
+|-
+
+|is
+|'s
+|is not
+|isn't
+
+|are
+|'re
+|are not
+|aren't 
+|===
+
+示例如下
+[example]
+--
+陈述:: He is a cowboy.
+缩写:: He's a cowboy.
+否定:: He is not a cowboy.
+否定缩写:: He isn't a cowboy.
+--
+
+.. 而它们的疑问形式，是将be动词和主语交换位置，句末改用问号。例如
+
+[example]
+--
+原句:: He is a cowboy.
+疑问:: Is he a cowbody?
+--
+****
+
+**练习**
+
+补充完整下方表格
+
+.{blank}
+[cols="^1,2,2,2", options="header"]
+|===
+|主语(代词)
+|陈述句
+|否定形式
+|疑问形式
+
+|I
+|
+|
+|[bold blue]**Am I here?**
+
+|You
+|
+|
+|
+
+|He
+|
+|[bold blue]**He isn't here.**
+|
+
+|She
+|
+|
+|
+
+|It
+|
+|
+|
+
+|We
+|
+|
+|
+
+|They
+|[bold blue]**They are here.**
+|
+|
+|===
+
+
+[appendix]
+== 昨天答案
+
+##Phonetic Symbol 1##: ``We study by comparing things known with things unknown.``
+
+##Phonetic Symbol 2##: ``He ran into the office to find the cause of the trouble of the machine.``
+
+##Phonetic Symbol 3##: ``You had better clear up this problem. ``
+
+
+[appendix]
+== 英语怎么说
+
+=== 大姨妈
+
+
+.menstruation
+====
+`menstruation` 是学名，一般口语中使用 `period` 
+
+.例句
+[source]
+--
+I'm having my period.
+I'm on my period.
+My peiod is coming today.
+I just had my period yesterday.
+My period is over.
+My period ended three days ago.
+--
+====
+
+
+.time of the month
+====
+
+.例句
+[source]
+--
+Woman at that time of the month should not do heavy work.
+--
+====
+
+
+.lady time / lady days / lady week
+====
+
+.例句
+[source]
+--
+My lady time is coming today
+--
+====
+
+.Aunt Flow / Aunt Flo / Aunt Fanny / Aunt Ruby
+====
+
+.例句
+[source]
+--
+Uh uh, Aunt Flo is visiting
+--
+====
+
+
+其他还有
+
+- on the rag 
+- my cousin has come 
+- girl issue 
+- shark week
+- my monthly
+- riding the cotton pony
+- Mother Nature's monthly Gift
+- close for maintenance
+- in the red tent
+- I've got my chums
+- Strawberry week

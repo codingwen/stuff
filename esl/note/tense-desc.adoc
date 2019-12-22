@@ -1,0 +1,62 @@
+== 时态
+
+时态(Tense)有两个方面:时(间)与(形)态，用不同的动词形态(一般形式、过去式、完成形式、进行时)达到描述不同时间发生的动作或者状态
+
+
+
+.时态概述
+[cols="2,2,8,8,8,8", options="header"]
+|===
+|
+|动词
+|现在
+|过去
+|将来
+|过去将来
+
+.2+.^|一般
+|be动词
+|I am here 
+|I was there 
+|I will be there 
+|If I were there, I would be happy
+
+
+|实意动词
+|I do it
+|I did it
+|I will do it
+|If I did A, I would do B
+
+|进行
+|实意动词
+|I am doing it 
+|I was doing it
+|I will be doing it
+|If I had been doing A, I would have been doing B
+
+
+.2+.^|完成
+|be动词
+|I have been there (before now)
+|I had been there before then
+|I will have been there by then
+|If I had been there, I would have be happy
+
+
+
+|实意动词
+|I have done it
+|I had done A before I did B
+|I will have done A before I do B
+|If I had done A, I would have done B
+
+|完成进行
+|实意动词
+|I have been doing A for a long time
+|I had been doing A before I did B
+|I will have been doing A for a while when I start B
+|If I had been doing A, I would have been doing B
+
+|===
+

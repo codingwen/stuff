@@ -1,0 +1,83 @@
+=== 句子结构
+
+.句子划分
+****
+. 按用途
+.. 陈述句(declarative sentence)
++
+[example]
+.{blank}
+--
+... Life is short.  生命是短暂的
+
+... China is rich in coal. 中国煤炭很丰富。
+--
+.. 疑问句(interrogative sentence)
++
+[example]
+.{blank}
+--
+... What is it? 什么事?
+
+... Does he play tennis? 他打网球吗?
+--
+.. 祈使句(imperative sentence)
++
+[example]
+.{blank}
+--
+... Stand up! 起立!
+
+...Be quiet. 安静。
+--
+.. 感叹句(exclamatory sentence)
++
+[example]
+.{blank}
+--
+... What a lovely baby! 多可爱的孩子!
+
+... How well he sings. 他唱的真好啊!
+--
+. 按结构
+.. 简单句(simple sentence):  简单句只有一个主语(或并列主语)和一个谓语动词(或并列谓语动词)
++
+[example]
+.{blank}
+--
+... I read this book many years ago. 我多年前读过这本书。
+... You and Mary should get married. 你和Mary该结婚了。
+
+... We swim in summer and go skating in winter. 我们夏天游泳，冬天滑雪。
+--
+.. 并列句(compound sentence): 由等立连词、逗号或分号把两个及多个简单句连接在一起构成
++
+[example]
+.{blank}
+--
+... We help them and they help us. 我们帮他们，他们帮我们。
+... It is late, so we must hurry. 天色已晚，我们得赶快。
+--
+.. 复合句(complex sentence): 包含一个及多个从句的句子
++
+[example]
+.{blank}
+--
+... He said that he would go to the Exhibition of Chinese Traditional Paintings. 他说要去中国国画展。
+... What is the name of the film that you saw yesterday? 你昨天看的那个电影叫什么？
+--
+****
+
+==== 简单句练习
+
+.否定和疑问
+****
+. be动词: be动词有多种形式，有am, are, is, being, was, were等等
++
+[example]
+--
+... 陈述句形式: I am happy.
+... 否定句形式: I am not happy.
+... 疑问句形式: Am I happy?
+--
+****

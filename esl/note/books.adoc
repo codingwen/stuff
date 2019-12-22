@@ -1,0 +1,40 @@
+:lang: zh-CN
+:encoding: utf-8
+:sectnums:
+:toc: left
+:toc-title: 目录
+:nofooter:
+:last-update-label!:
+
+= 书目
+
+- [ ] James and the Giant Peach(by Roald Dahl)
+- [ ] Number the stars(by Lois Lowry)
+- [ ] Charlotte's Web(by Cannabis)
+- [ ] The love of a King(by Peter Dainty)
+- [ ] The Complete Chronicles of Narnia(纳尼亚传奇全集)
+- [ ] The Patchwork Girl of Oz(奥兹国仙境奇遇记:碎布姑娘)
+- [ ] Treasure Island(金银岛)
+- [ ] The Goldfinch(金翅雀, by Donna Tartt)
+- [ ] The Wind in the Willows(柳林风声, by Kenneth Grahame)
+- [ ] White Tears
+- [ ] 80天环游地球
+- [ ] 动物庄园
+- [ ] 了不起的盖茨比
+- [ ] 弗兰肯斯坦
+- [ ] 瓦尔登湖
+- [ ] 一个陌生女人的来信
+- [ ] The Thorn Birds(荆棘鸟, by Colleen McCullough)
+- [ ] 飘
+- [ ] 麦田里的守望者
+- [ ] Sing, Unberied, Sing
+- [ ] Transit(by Rachel Cusk)
+- [ ] Pride and Prejudice(傲慢与偏见, by Jane Austin)
+- [ ] Great Expectations(远大前程, by Charles Dickens)
+- [ ] Jane Eyre(简爱, by Charlotte Bronte)
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
+- [ ] 
