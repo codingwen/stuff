@@ -1,0 +1,27 @@
+= python3
+wen
+:doctype: article
+:encoding: utf-8
+:lang: zh
+:toc: left
+:numbered:
+:official: link:https://code.visualstudio.com/docs/python/python-tutorial[official, window="_blank"]
+
+== VS Code
+
+官方文档参见{official}
+
+安装Microsoft提供的插件
+
+查看版本``python3 --version``
+
+== Debug
+
+插件提供debug功能
+
+== 设置环境
+
+== Lint
+
+启用
+``Python: Select Linter``

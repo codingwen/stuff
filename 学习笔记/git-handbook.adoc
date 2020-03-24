@@ -1,0 +1,63 @@
+= git handbook
+wen
+:doctype: article
+:encoding: utf-8
+:lang: zh
+:toc: left
+:numbered:
+
+== 保持干净整洁的commit历史
+
+对于个人开发者而言，在push之前，采用##git rebase -i treeish## 进行rebase。
+
+
+实验
+
+创建一个git裸仓库
+
+----
+cd gitland
+gitland> mkdir mock-repo
+gitland > cd mock-repo
+mock-repo> git init --bare
+----
+
+克隆两个工作仓库
+----
+gitland> git clone ./mock-repo workdir-jack
+gitland> git clone ./mock-repo workdir-jason
+----
+
+模拟两个用户
+
+----
+gitland> cd workdir-jack
+workdir-jack> git config --local --add user.name jack
+workdir-jack> git config --local --add user.email jack@test.com
+
+gitland> cd workdir-jason
+workdir-jason> git config --local --add user.name jason
+workdir-jason> git config --local --add user.email jason@test.com
+----
+
+用户jack切换分支develop进行文件提交
+----
+workdir-jack> touch .gitignore
+添加一些内容
+workdir-jack> git add .gitignore
+workdir-jack> git commit -m "init"
+workdir-jack> git log --graph
+可以看到一个初始提交
+----
+
+用户jason开始自己的工作，编辑了一个文件，也进行了提交
+----
+workdir-jason> git checkout -b develop
+workdir-jason> touch jason-file1.txt
+workdir-jason> git add jason-file1.txt
+workdir-jason> git commit -m "add jason-file1"
+然后添加了另一个文件，同时修改了file1，做了第二次提交
+workdir-jason> touch jason-file2.txt
+workdir-jason> git add jason-file1.txt jason-file2.txt
+workdir-jason> git commit -m "add jason-file2 and update jason-file1"
+----

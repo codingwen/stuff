@@ -1,0 +1,140 @@
+= npm and yarn
+
+== yarn
+
+https://yarnpkg.com/lang/en/[官网]
+
+== npm
+
+https://docs.npmjs.com/[官方文档]
+
+[appendix]
+== package.json
+
+在Node模块中，package.json是这个模块的描述文件，其规范在
+https://docs.npmjs.com/files/package.json[这里]，其最新版本在
+https://registry.npmjs.org/npm/latest[这里]，而wiki说明在 http://wiki.commonjs.org/wiki/Packages/1.0[这里]
+
+=== 如何创建
+`npm init` 在当前目录初始一个文件
+
+=== 如何配置
+
+`npm config ls -l` 可以查看npm内置的配置项
+
+.一个完整示例
+[source,json]
+----
+{
+"name": "xxx",                          <1>
+"version": "1.2.3",                     <2>
+"description": "aaaaa",                 <3>
+"keywords": ["aaa","bbb","ccc"]         <4>
+"homepage": "https://github.com/owner/project#readme", <5>
+"bugs": {                               <6>
+"url": "xxxx",
+"email": "xxxx"
+},
+"license": "ISC" | "UNLICENSED",        <7>
+"author": "Barney Rubble <b@rubble.com> (http://barnyrubble.tumblr.com/)",  <8>
+"files": ["aa","bb"],                   <9>
+"main": "xxx.js",                       <10>
+"browser": "sdsfsdf",                   <11>
+"bin": { "myapp" : "./cli.js" },        <12>
+"man": [ "./man/foo.1", "./man/bar.1" ],<13>
+"directories": {                        <14>
+  "bin": "./bin",                       <15>
+  "man": "./man",                       <16>
+  "doc": "./doc",                       <17>
+  "lib": "./lib",                       <18>
+  "example": "sdfsdsf",                 <19>
+  "test": "sdfsdsf",                    <20>
+},
+"repository": {                         <21>
+  "type" : "git",
+  "url" : "https://github.com/npm/cli.git",
+  "directory": "packages/react-dom"     <22>
+},                                      
+"scripts": {
+    "dumpconf": "env | grep npm | sort | uniq",
+    "prepare": "node bin/npm-cli.js rebuild && node bin/npm-cli.js --no-audit --no-timing prune --prefix=. --no-global && rimraf test/*/*/node_modules && make -j4 mandocs",
+    "preversion": "bash scripts/update-authors.sh && git add AUTHORS && git commit -m \"update AUTHORS\" || true",
+    "licenses": "licensee --production --errors-only",
+    "tap": "tap -J --timeout 300 --no-esm",
+    "tap-cover": "tap -J --nyc-arg=--cache --coverage --timeout 600 --no-esm",
+    "pretest": "standard",
+    "test": "npm run test-tap --",
+    "test:nocleanup": "NO_TEST_CLEANUP=1 npm run test --",
+    "sudotest": "sudo npm run tap -- \"test/tap/*.js\"",
+    "sudotest:nocleanup": "sudo NO_TEST_CLEANUP=1 npm run tap -- \"test/tap/*.js\"",
+    "posttest": "rimraf test/npm_cache*",
+    "test-coverage": "npm run tap-cover -- \"test/tap/*.js\" \"test/network/*.js\"",
+    "test-tap": "npm run tap -- \"test/tap/*.js\" \"test/network/*.js\"",
+    "test-node": "tap --timeout 240 \"test/tap/*.js\" \"test/network/*.js\""
+},                                      <23>
+"config": {},                           <24>
+"dependencies": {
+"JSONStream": "^1.3.5",
+    "abbrev": "~1.1.1",
+    "ansicolors": "~0.3.2",
+    "ansistyles": "~0.1.3",
+    "aproba": "^2.0.0",
+    "archy": "~1.0.0",
+    "bin-links": "^1.1.6",
+    "bluebird": "^3.5.5",
+    "byte-size": "^5.0.1"
+},                                      <25>
+"devDependencies": [],                  <26>
+"peerDependencies": [],                 <27>
+"bundledDependencies": [],              <28>
+"optionalDependencies": [],             <29>
+"engines": { "node" : ">=0.10.3 <0.12" }, <30>
+"engineStrict": "",                     <31>
+"os": [ "darwin", "linux" ],            <32>
+"cpu": [ "x64", "ia32" ],               <33>
+"preferGlobal": "",                     <34>
+"private": true | false,                <35>
+"publishConfig": {},                    <36>
+}
+----
+<1> 必须，这个模块的名称，被别的模块``require``是用到
+<2> 必须，要符合大版本.次要版本.小版本规范
+<3> 可选，可被``npm search``搜到
+<4> 可选，可悲``npm search``搜到
+<5> 可选，模块主页
+<6> 可选，可以是object也可以只是一个代表url的字符串，可用于``npm bugs``命令
+<7> 可选，license，只需指明用了什么许可
+<8> 可选，这是简写方式，也可以使用object
++
+----
+sds
+----
+<9> 可选,当模块要打包成为其他模块可依赖的模块时，指定要包含的文件pattern，类似``.gitignore``，但作用相反;也可指定``.npmignore``文件
+<10> 可选，是此模块的主入口
+<11> 可选，当模块要用作浏览器端使用，那就不必指定main属性
+<12> 可选，把模块安装为系统命令
+<13> 可选，单个文件或多个文件数组，用来指定手册
+<14> 可选，CommonJS规范用``directories``指定package的结构
+<21> 可选，指定代码位置，这样``npm docs``命令可以直接打开代码仓库，也可以采用简写形式 ``"repository": "bitbucket:user/repo"``
+<22> 可选，当``package.json``不在根目录下的时候
+<23> 必须，是一个词典，key是组件生命周期的事件(类似maven的phase)，可以被当作脚本命令执行
+<24> 可选，用于设置一些预设属性，相当于local env，可被用于scripts中，也可通过``npm config set``命令在运行时覆盖
+<25> 可选，模块用到的依赖模块，名称和版本号，版本号具备多种标记方式
+<26> 可选，不打算用在打包阶段的依赖模块
+<27> 可选，兼容的依赖
+<28> 可选，一组依赖组件，会在组件本身发布的时候打包在一起
+<29> 可选，无关紧要的依赖，即使不正确也没有影响
+<30> 可选，用来指定node或者npm的版本号
+<31> 可选，从npm 3.0开始就被移除了
+<32> 可选，指定组件运行所(不)需的操作系统
+<33> 可选，指定cpu架构
+<34> 可选，已经不建议使用
+<35> 可选，如果true, npm将拒绝发布此组件
+<36> 可选，一组用于发布的配置
+
+[appendix]
+== npm scripts
+
+npm支持如下的script(类似maven的phase和maven插件的goal)
+
+- prepublish
