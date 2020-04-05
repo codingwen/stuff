@@ -1,0 +1,26 @@
+{
+  "name": "adoc-preview-sync",
+  "version": "1.0.0",
+  "description": "sync adoc doc and preview in browser",
+  "main": "adoc-preview-sync.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codingwen/stuff.git"
+  },
+  "keywords": [
+    "adoc-preview-sync"
+  ],
+  "author": "wena",
+  "dependencies": {
+    "asciidoctor": "^2.1.1",
+    "browser-sync": "^2.26.7"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codingwen/stuff/issues"
+  },
+  "homepage": "https://github.com/codingwen/stuff#readme"
+}

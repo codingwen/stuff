@@ -11,6 +11,50 @@ wen
 
 本手册用于快速检索kotlin的方方面面
 
+<<<
+
+== REPL(Read-Eval-Print Loop)
+
+- Intellij
+- kotlinc
+
+== 和Java相比
+
+=== if可做表达式
+
+.if做表达式
+====
+[source, kotlin]
+----
+if (x > y) {
+  println("x is greater than y")
+} else {
+  println("x is not greater than y")
+}
+
+println(if (x > y) "x is greater than y" else "x is not greater than y")
+----
+====
+
+== type inferring(类型推断)
+
+the compiler can infer the variable's type from the value that's assigned to it
+
+== array
+
+var myArray: Array<Byte> = arrayOf(1, 2, 3)
+
+== function
+
+- regular function
+- single expression function
+
+== class
+
+- constructor
+
+<<<
+
 == 接口和类
 
 . 声明
