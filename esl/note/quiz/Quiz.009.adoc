@@ -21,7 +21,7 @@ ____
 
 == 音标
 
-include::.../phonetic-desc.adoc[]
+include::../phonetic-desc.adoc[leveloffset=+1]
 
 **练习**
 

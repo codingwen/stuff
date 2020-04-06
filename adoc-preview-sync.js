@@ -21,7 +21,7 @@ bs.watch('**/*.adoc', {
     var path = file.substring(0, file.lastIndexOf("/"));
     var to_dir = 'output/' + path;
     var images_dir = '/' + path;
-    var html = asciidoctor.convertFile(file, {'safe': 'safe', 'attributes':{'imagesdir': './images', 'outdir': to_dir, 'outfile': file}, 
-    'catalog_assets': true, 'mkdirs': true });
+    var html = asciidoctor.convertFile(file, {'safe': 'unsafe', 'attributes':{'imagesdir': images_dir}, 'to_dir': to_dir,
+    'catalog_assets': true, 'mkdirs': true});
     bs.reload(html);
 });

@@ -9,7 +9,9 @@ Wen
 :sectnums:
 :nofooter:
 :last-update-label!:
-:official: link:https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html[官方文档, window="_blank"]
+:icons: font
+:appendix-caption: 附录
+:official: link:https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html[官方lambda文档, window="_blank"]
 :api-doc: link:https://docs.oracle.com/javase/8/docs/api/index.html?java/util/stream/package-tree.html[官方API文档,window="_blank"]
 :resource2: link:http://www.oracle.com/technetwork/articles/java/ma14-java-se-8-streams-2177646.html[resoure2, window="_blank"]
 
@@ -67,7 +69,7 @@ List<Integer> transactionsIds =
 
 image::images/EQ5G8dt9&Kf!.png[流程示意图]
 
-首先，从list中通过`stream()`得到一个stream，接下来，通过一组操作(filter,sorted,map,collect)连接成一个处理的pipeline，可以被当作对数据的一个query。
+首先，从list中通过``stream()``得到一个stream，接下来，通过一组操作(filter,sorted,map,collect)连接成一个处理的pipeline，可以被当作对数据的一个query。
 
 
 .并行化处理
@@ -147,15 +149,13 @@ image::images/19711846704a2d8aeead809124441b5bea62215d.png[]
 
 == 常用操作(Stream operations)
 
-根据{api-doc}，可以看到stream支持的所有操作，列举在附表A中。
+根据{api-doc}，可以看到stream支持的所有操作，列举在<<appxa>>中。
 
 这些操作分为两种类型：intermediate和terminal。
 
 - intermediate: 各种能将返回类型为stream的操作连在一起形成pipeline的操作，比如filter,sorted,map,distinct等，
 重要的是，intermediate并不会立即对数据做任何操作，这被称为##lazy##
 - terminal: 会关闭stream的操作被称为terminal。它们从一个pipeline产生一个结果，比如List, Integer，甚至void。只有terminal操作被调用的时候，一个pipeline才会进行真正的处理。
-
-例如
 
 .示例说明
 ====
@@ -340,7 +340,7 @@ In cases where the stream has an encounter order, but the user does not particul
 - `boolean anyMatch(Predicate<? super T> predicate)`: 任意匹配
 - `boolean noneMatch(Predicate<? super T> predicate)`: 无匹配
 
-根据方法签名的名称，可以看出三个操作各自用途，根据predicate，返回true或者false。例如
+根据方法签名的名称，可以看出三个操作各自用途，根据predicate，返回true或者false，
 
 .matching示例
 ====
@@ -358,7 +358,7 @@ System.out.println("result is : " + Stream.of("one", "two", "three", "four")
 - `Optional<T> findFirst()`: 找到第一个
 - `Optional<T> findAny()`: 找到任一个
 
-可以看到，这两个操作均返回一个包装类型 ##Optional<T>##，是一种容器类，用来表示一个值是否存在(关于Optional类的说明，参见附录B)。
+可以看到，这两个操作均返回一个包装类型 ##Optional<T>##，是一种容器类，用来表示一个值是否存在(关于Optional类的说明，参见<<appxb>>)。
 
 .finding示例
 ====
@@ -481,7 +481,7 @@ Collector is specified by four functions that work together to accumulate entrie
 
 --
 
-Java8提供多种内置collectors，可以通过Collectors的静态方法获得(参考[[附录C]])，因此，大多数情况下使用第一种方法就可以了，比如
+Java8提供多种内置collectors，可以通过Collectors的静态方法获得(参考<<appxc>>)，因此，大多数情况下使用第一种方法就可以了，比如
 
 .collect示例
 ====
@@ -514,13 +514,13 @@ Stream.of("one", "two", "three", "four")
 
 返回stream中元素数量
 
-- `long count()`
+- ``long count()``
 
 
 ==== toArray
 
-- `Object[] toArray()`
-- `<A> A[] toArray(IntFunction<A[]> generator)`
+- ``Object[] toArray()``
+- ``<A> A[] toArray(IntFunction<A[]> generator)``
 
 toArray是实例方法——将当前stream转换为Array。例如
 
@@ -535,8 +535,8 @@ Stream.generate(() -> UUID.randomUUID().toString())
 ----
 ====
 
-如果希望返回确定的类型，则要用到第二种方法，根据方法签名，可以看到IntFunction泛型是`A[]`，
-而接口IntFunction定义为
+如果希望返回确定的类型，则要用到第二种方法，根据方法签名，可以看到IntFunction泛型是``A[]``，而接口IntFunction定义为
+
 [source,java]
 ----
 @FunctionalInterface                   <1>
@@ -632,8 +632,10 @@ Stream<String> streamBuilder =
 ====
 [source, java]
 ----
-Stream<String> streamGenerated =
-  Stream.generate(() -> "element").limit(10);
+int days = Period.between(start, end).getDays();
+
+List<LocalDate> serials = Stream.iterate(start, d -> d.plusDays(1)).limit(days+1).collect(Collectors.toList());
+
 ----
 ====
 
@@ -759,344 +761,497 @@ java.uitl.zip提供的
   | - java.util.stream.Stream<T>
 ----
 
-### 4.1 IntStream
+=== IntStream
 
-通过文档，可以看到一些操作诸如`allMatch(IntPredicate predicate)`,`concat(IntStream a, IntStream b)`之类，和Stream类相比，方法名称相同，只是参数适配Integer类型，那么其实作用和用法都是一样的，就不必细究。主要看一下真正不同于Stream的一些方法
+通过文档，可以看到一些操作诸如``allMatch(IntPredicate predicate)``,``concat(IntStream a, IntStream b)``之类，和Stream类相比，方法名称相同，只是参数适配Integer类型，那么其实作用和用法都是一样的，就不必细究。主要看一下真正不同于Stream的一些方法
 
-- `DoubleStream asDoubleStream()`
-- `LongStream asLongStream()`
-- `OptionalDouble average()`
-- `Stream<Integer> boxed()`
-- `<U> Stream<U> mapToObj(IntFunction<? extends U> mapper)`
-- `static IntStream	range(int startInclusive, int endExclusive)`
-- `static IntStream	rangeClosed(int startInclusive, int endInclusive)`
-- `Spliterator.OfInt spliterator()`
-- `int sum()`
-- `IntSummaryStatistics summaryStatistics()`
+- ``DoubleStream asDoubleStream()``
+- ``LongStream asLongStream()``
+- ``OptionalDouble average()``
+- ``Stream<Integer> boxed()``
+- ``<U> Stream<U> mapToObj(IntFunction<? extends U> mapper)``
+- ``static IntStream	range(int startInclusive, int endExclusive)``
+- ``static IntStream	rangeClosed(int startInclusive, int endInclusive)``
+- ``Spliterator.OfInt spliterator()``
+- ``int sum()``
+- ``IntSummaryStatistics summaryStatistics()``
 
-**boxed**
+==== boxed
 
 根据API文档，这个方法返回Stream，每个元素都会被boxes to Integer
 
-**range|rangeClosed**
+==== range|rangeClosed
 
 这两个静态方法根据两个值之间的连续整数生成一个stream，两个方法的startInclusive都是inclusive的，而endExclusive一个是exclusive的，一个是inclusive的
 
-**spliterator**
+==== spliterator
 
 返回一个Spliterator.OfInt类型
 
-**summaryStatistics**
+==== summaryStatistics
 
 返回的类型IntSummaryStatistics是一个统计类，提供count,min,max,sum,average等指标。
 
-**construction**
+==== construction
 
 除了和Stream相似的一些Stream类的构造方法外，还有一些构造IntStream的方法，根据API文档，主要有
 
-- `CharSequence.chars()`
-- `CharSequence.codePoints()`
-- `CharBuffer.chars()`
-- `Random.ints()`
-- `SplittableRandom.ints()`
-- `BitSet.stream()`
-- `ThreadLocalRandom.ints()`
+- ``CharSequence.chars()``
+- ``CharSequence.codePoints()``
+- ``CharBuffer.chars()``
+- ``Random.ints()``
+- ``SplittableRandom.ints()``
+- ``BitSet.stream()``
+- ``ThreadLocalRandom.ints()``
 
-### 4.2 LongStream
+=== LongStream
 
 和IntStream类似，只有asDoubleStream方法
 
-**construction**
+==== construction
 
-- `Random.longs()`
-- `SplittableRandom.longs()`
-- `ThreadLocalRandom.longs()`
+- ``Random.longs()``
+- ``SplittableRandom.longs()``
+- ``ThreadLocalRandom.longs()``
 
-### 4.3 DoubleStream
+=== DoubleStream
 
 没有range和rangeClosed方法，没有asXXXStream方法
 
-**construction**
+==== construction
 
-- `Random.doubles()`
-- `SplittableRandom.doubles()`
-- `ThreadLocalRandom.doubles()`
+- ``Random.doubles()``
+- ``SplittableRandom.doubles()``
+- ``ThreadLocalRandom.doubles()``
 
-## 附表A: Stream操作
+[#appxa, reftext=附录A]
+[appendix]
+== Stream操作
 
-No. | Method Signature | type
--|-
-1. | `Stream<T> filter(Predicate<? super T> predicate)` | intermediate
-2. | `Stream<T> distinct()` | intermediate
-3. | `Stream<T> limit(long maxSize)` | intermediate
-4. | `Stream<T> skip(long n)` | intermediate
-5. | `Stream<T> sorted()` | intermediate
-6. | `Stream<T> sorted(Comparator<? super T> comparator)` | intermediate
-7. | `<R> Stream<R> map(Function<? super T,? extends R> mapper)` | intermediate
-8. | `DoubleStream mapToDouble(ToDoubleFunction<? super T> mapper)` | intermediate
-9. | `IntStream mapToInt(ToIntFunction<? super T> mapper)` | intermediate
-10. | `LongStream mapToLong(ToLongFunction<? super T> mapper)` | intermediate
-11. | `<R> Stream<R> flatMap(Function<? super T,? extends Stream<? extends R>> mapper)` | intermediate
-12. | `DoubleStream flatMapToDouble(Function<? super T,? extends DoubleStream> mapper)` | intermediate
-13. | `IntStream flatMapToInt(Function<? super T,? extends IntStream> mapper)` | intermediate
-14. | `LongStream flatMapToLong(Function<? super T,? extends LongStream> mapper)` | intermediate
-15. | `Stream<T> peek(Consumer<? super T> action)` | intermediate
-16. | `S parallel()` | intermediate
-17. | `S sequential()` | intermediate
-18. | `S unordered()` | intermediate
-19. | `boolean allMatch(Predicate<? super T> predicate)` | terminal
-20. | `boolean anyMatch(Predicate<? super T> predicate)` | terminal 
-21. | `boolean noneMatch(Predicate<? super T> predicate)` | terminal
-22. | `Optional<T> findAny()` | terminal
-23. | `Optional<T> findFirst()` | terminal
-24. | `void forEach(Consumer<? super T> action)` | terminal
-25. | `void forEachOrdered(Consumer<? super T> action)` | terminal
-26. | `Optional<T> reduce(BinaryOperator<T> accumulator)` | terminal
-27. | `T reduce(T identity, BinaryOperator<T> accumulator)` | terminal
-28. | `<U> U reduce(U identity, BiFunction<U,? super T,U> accumulator, BinaryOperator<U> combiner)` | terminal
-29. | `<R,A> R collect(Collector<? super T,A,R> collector)` | terminal
-30. | `<R> R collect(Supplier<R> supplier, BiConsumer<R,? super T> accumulator, BiConsumer<R,R> combiner)` | terminal
-31. | `Optional<T> max(Comparator<? super T> comparator)` | terminal
-32. | `Optional<T> min(Comparator<? super T> comparator)` | terminal
-33. | `long count()` | terminal
-34. | `Object[] toArray()` | terminal
-35. | `<A> A[] toArray(IntFunction<A[]> generator)` | terminal
-36. | `static <T> Stream<T> of(T... values)` | constructional
-37. | `static <T> Stream<T> of(T t)` | constructional
-38. | `static <T> Stream.Builder<T> builder()` | constructional
-39. | `static <T> Stream<T> generate(Supplier<T> s)` | constructional
-40. | `static <T> Stream<T> iterate(T seed, UnaryOperator<T> f)` | constructional
-41. | `static <T> Stream<T> concat(Stream<? extends T> a, Stream<? extends T> b)` | 
-42. | `static <T> Stream<T> empty()` | 
+.操作表
+[cols="1,3,3", options="header"]
+|===
+|序号
+| 方法签名
+| 类型
 
+|{counter:index}
+| ``Stream<T> filter(Predicate<? super T> predicate)``
+| intermediate
 
-## 附录B Optional
+|{counter:index}
+| ``Stream<T> distinct()``
+| intermediate
+
+|{counter:index}
+| ``Stream<T> limit(long maxSize)`` 
+| intermediate
+
+|{counter:index}
+| ``Stream<T> skip(long n)`` 
+| intermediate
+
+|{counter:index}
+| `Stream<T> sorted()` 
+| intermediate
+
+|{counter:index}
+| `Stream<T> sorted(Comparator<? super T> comparator)` 
+| intermediate
+
+|{counter:index}
+| `<R> Stream<R> map(Function<? super T,? extends R> mapper)` 
+| intermediate
+
+|{counter:index}
+| `DoubleStream mapToDouble(ToDoubleFunction<? super T> mapper)` | intermediate
+
+|{counter:index}
+| `IntStream mapToInt(ToIntFunction<? super T> mapper)` 
+| intermediate
+
+|{counter:index}
+| `LongStream mapToLong(ToLongFunction<? super T> mapper)` 
+| intermediate
+
+|{counter:index}
+| `<R> Stream<R> flatMap(Function<? super T,? extends Stream<? extends R>> mapper)` 
+| intermediate
+
+|{counter:index} 
+| `DoubleStream flatMapToDouble(Function<? super T,? extends DoubleStream> mapper)` 
+| intermediate
+
+|{counter:index} 
+| `IntStream flatMapToInt(Function<? super T,? extends IntStream> mapper)` 
+| intermediate
+
+|{counter:index} 
+| `LongStream flatMapToLong(Function<? super T,? extends LongStream> mapper)` 
+| intermediate
+
+|{counter:index}
+| `Stream<T> peek(Consumer<? super T> action)` 
+| intermediate
+
+|{counter:index} 
+| `S parallel()` 
+| intermediate
+
+|{counter:index}
+| `S sequential()` 
+| intermediate
+
+|{counter:index}
+| `S unordered()` 
+| intermediate
+
+|{counter:index}
+| `boolean allMatch(Predicate<? super T> predicate)` 
+| terminal
+
+|{counter:index}
+| `boolean anyMatch(Predicate<? super T> predicate)` 
+| terminal 
+
+|{counter:index}
+| `boolean noneMatch(Predicate<? super T> predicate)` 
+| terminal
+
+|{counter:index}
+| `Optional<T> findAny()` 
+| terminal
+
+|{counter:index}
+| `Optional<T> findFirst()` 
+| terminal
+
+|{counter:index}
+| `void forEach(Consumer<? super T> action)` 
+| terminal
+
+|{counter:index}
+| `void forEachOrdered(Consumer<? super T> action)` 
+| terminal
+
+|{counter:index}
+| `Optional<T> reduce(BinaryOperator<T> accumulator)` 
+| terminal
+
+|{counter:index}
+| `T reduce(T identity, BinaryOperator<T> accumulator)` 
+| terminal
+
+|{counter:index}
+| `<U> U reduce(U identity, BiFunction<U,? super T,U> accumulator, BinaryOperator<U> combiner)` 
+| terminal
+
+|{counter:index}
+| `<R,A> R collect(Collector<? super T,A,R> collector)` 
+| terminal
+
+|{counter:index}
+| `<R> R collect(Supplier<R> supplier, BiConsumer<R,? super T> accumulator, BiConsumer<R,R> combiner)` 
+| terminal
+
+|{counter:index}
+| `Optional<T> max(Comparator<? super T> comparator)` 
+| terminal
+
+|{counter:index}
+| `Optional<T> min(Comparator<? super T> comparator)` 
+| terminal
+
+|{counter:index}
+| `long count()` 
+| terminal
+
+|{counter:index}
+| `Object[] toArray()` 
+| terminal
+
+|{counter:index}
+| `<A> A[] toArray(IntFunction<A[]> generator)` 
+| terminal
+
+|{counter:index}
+| `static <T> Stream<T> of(T... values)` 
+| constructional
+
+|{counter:index}
+| `static <T> Stream<T> of(T t)` 
+| constructional
+
+|{counter:index}
+| `static <T> Stream.Builder<T> builder()` 
+| constructional
+
+|{counter:index}
+| `static <T> Stream<T> generate(Supplier<T> s)` 
+| constructional
+
+|{counter:index}
+| `static <T> Stream<T> iterate(T seed, UnaryOperator<T> f)` 
+| constructional
+
+|{counter:index}
+| `static <T> Stream<T> concat(Stream<? extends T> a, Stream<? extends T> b)` 
+| 
+
+|{counter:index}
+| `static <T> Stream<T> empty()` 
+| 
+|===
+
+[#appxb,reftext=附录B]
+[appendix]
+== Optional
 
 可以看到stream的一些terminal操作返回结果是Optional类型，那么来看一看Optional类。
 
-`Optional<T>`位于java.util包下，同级同时提供OptionalInt,OptionalLong,OptionalDouble三个基本类型类。
-Optional是一个包装类，可能包含或者不包含非空对象。如果存在非空对象，那么`isPresent()`返回true，`get()`返回被包含对象。
+``Optional<T>``位于java.util包下，同级同时提供OptionalInt,OptionalLong,OptionalDouble三个基本类型类。
+Optional是一个包装类，可能包含或者不包含非空对象。如果存在非空对象，那么``isPresent()``返回true，``get()``返回被包含对象。
 
-**construction**
+=== construction
 
 根据API文档，看到Optional提供了3个用于构造Optional的静态方法
 
-- `static <T> Optional<T> empty()`
-- `static <T> Optional<T> of(T value)`
-- `static <T> Optional<T> ofNullable(T value)`
+- ``static <T> Optional<T> empty()``
+- ``static <T> Optional<T> of(T value)``
+- ``static <T> Optional<T> ofNullable(T value)``
 
-`empty()`直接返回一个空的Optional对象，而`of(T value)`返回包含一个非空对象的Optional对象，如果value为空的话，会抛出NPE异常；所以，如果不确定需要被包装的对象是否为空的话，应当使用`ofNullable(T value)`，如果被包装对象是null的话，它返回的是一个空的Optional(调用`empty()`)方法。
+``empty()``直接返回一个空的Optional对象，而``of(T value)``返回包含一个非空对象的Optional对象，如果value为空的话，会抛出NPE异常；所以，如果不确定需要被包装的对象是否为空的话，应当使用``ofNullable(T value)``，如果被包装对象是null的话，它返回的是一个空的Optional(调用``empty()``)方法。
 
-**consume**
+=== consume
 
 那么，如果使用Optional呢？先看几个方法
 
-- `T get()`: 返回被包装的对象，如果对象为空，则会抛**NoSuchElementException**异常
-- `void ifPresent(Consumer<? super T> consumer)`: 如果对象存在，则进行操作，否则什么都不发生
-- `T orElse(T other)`: 如果对象不为空，返回对象，否则，调用并返回other
-- `T orElseGet(Supplier<? extends T> other)`: 如果对象不为空，返回对象，否则，调用并返回other的结果
-- `<X extends Throwable> T orElseThrow(Supplier<? extends X> exceptionSupplier) throws X extends Throwable`: 如果对象不为空，返回对象；否则，抛出provider创建的异常
+- ``T get()``: 返回被包装的对象，如果对象为空，则会抛##NoSuchElementException##异常
+- ``void ifPresent(Consumer<? super T> consumer)``: 如果对象存在，则进行操作，否则什么都不发生
+- ``T orElse(T other)``: 如果对象不为空，返回对象，否则，调用并返回other
+- ``T orElseGet(Supplier<? extends T> other)``: 如果对象不为空，返回对象，否则，调用并返回other的结果
+- ``<X extends Throwable> T orElseThrow(Supplier<? extends X> exceptionSupplier) throws X extends Throwable``: 如果对象不为空，返回对象；否则，抛出provider创建的异常
 
 其中，orElse和orElseGet不容易区分。通过一个简单的例子进行对比
 
-*包装对象不为空*
 
-```
+
+.包装对象不为空
+====
+[source,java]
+----
   String str = "bar";
   Optional<String> op2 = Optional.ofNullable(str);
   System.out.println(op2.orElse(foo()));
   System.out.println(op2.orElseGet(() -> foo()));
-```
+----
+====
 
 输出
 
+----
 > foo...
 bar
 bar
+----
 
----
-
-*包装对象为空*
-
-```
+.包装对象为空
+====
+[source,java]
+----
   String str = "bar";
   str = null;
   Optional<String> op2 = Optional.ofNullable(str);
   System.out.println(op2.orElse(foo()));
   System.out.println(op2.orElseGet(() -> foo()));
-```
+----
+====
 
 输出
 
+----
 > foo...
 foo
 foo...
 foo
+----
 
 可以看到，不论被包装对象是否存在，orElseGet都仅仅返回最终对象；而orElse在被包装对象不为空的时候，会调用并执行替代方法。
 
-**filter|map**
+=== filter|map
 
-- `Optional<T> filter(Predicate<? super T> predicate)`
-- `<U> Optional<U> map(Function<? super T,? extends U> mapper)`
-- `<U> Optional<U> flatMap(Function<? super T,Optional<U>> mapper)`
+- ``Optional<T> filter(Predicate<? super T> predicate)``
+- ``<U> Optional<U> map(Function<? super T,? extends U> mapper)``
+- ``<U> Optional<U> flatMap(Function<? super T,Optional<U>> mapper)``
 
 可以看到，Optional支持过滤和映射操作。
 
-需要注意的是map操作，根据API文档，
+需要注意的是map操作，API文档，
 
-> This method supports post-processing on optional values...
+[quote, API文档]
+--
+This method supports post-processing on optional values...
+--
 
-
-## 附录C Collectors
+[#appxc, reftext=附录C]
+[appendix]
+== Collectors
 
 按照Jave API的习惯，看得出来Collectors是Collector的工具类。提供了一些outboxing的静态方法用于redunction操作。官方文档给出了一些示例，这里对其API方法做一个整理。
 
-1. `static <T> Collector<T,?,Double> averagingDouble(ToDoubleFunction<? super T> mapper)`
-2. `static <T> Collector<T,?,Double> averagingInt(ToIntFunction<? super T> mapper)`
-3. `static <T> Collector<T,?,Double> averagingLong(ToLongFunction<? super T> mapper)`
-4. `static <T> Collector<T,?,Long> counting()`
-5. `static <T,K> Collector<T,?,Map<K,List<T>>> groupingBy(Function<? super T,? extends K> classifier)`
-6. `static <T,K,A,D> Collector<T,?,Map<K,D>> groupingBy(Function<? super T,? extends K> classifier, Collector<? super T,A,D> downstream)`
-7. `static <T,K,D,A,M extends Map<K,D>> Collector<T,?,M> groupingBy(Function<? super T,? extends K> classifier, Supplier<M> mapFactory, Collector<? super T,A,D> downstream)`
-8. `static <T,K> Collector<T,?,ConcurrentMap<K,List<T>>> groupingByConcurrent(Function<? super T,? extends K> classifier)`
-9. `static <T,K,A,D> Collector<T,?,ConcurrentMap<K,D>> groupingByConcurrent(Function<? super T,? extends K> classifier, Collector<? super T,A,D> downstream)`
-10. `static <T,K,A,D,M extends ConcurrentMap<K,D>> Collector<T,?,M> groupingByConcurrent(Function<? super T,? extends K> classifier, Supplier<M> mapFactory, Collector<? super T,A,D> downstream)`
-11. `static Collector<CharSequence,?,String> joining()`
-12. `static Collector<CharSequence,?,String> joining(CharSequence delimiter)`
-13. `static Collector<CharSequence,?,String> joining(CharSequence delimiter, CharSequence prefix, CharSequence suffix)`
-14. `static <T,U,A,R> Collector<T,?,R> mapping(Function<? super T,? extends U> mapper, Collector<? super U,A,R> downstream)`
-15. `static <T> Collector<T,?,Optional<T>> maxBy(Comparator<? super T> comparator)`
-16. `static <T> Collector<T,?,Optional<T>> minBy(Comparator<? super T> comparator)`
-17. `static <T> Collector<T,?,Map<Boolean,List<T>>> partitioningBy(Predicate<? super T> predicate)`
-18. `static <T,D,A> Collector<T,?,Map<Boolean,D>> partitioningBy(Predicate<? super T> predicate, Collector<? super T,A,D> downstream)`
-19. `static <T> Collector<T,?,Optional<T>> reducing(BinaryOperator<T> op)`
-20. `static <T> Collector<T,?,T> reducing(T identity, BinaryOperator<T> op)`
-21. `static <T,U> Collector<T,?,U> reducing(U identity, Function<? super T,? extends U> mapper, BinaryOperator<U> op)`
-22. `static <T> Collector<T,?,DoubleSummaryStatistics> summarizingDouble(ToDoubleFunction<? super T> mapper)`
-23. `static <T> Collector<T,?,IntSummaryStatistics> summarizingInt(ToIntFunction<? super T> mapper)`
-24. `static <T> Collector<T,?,LongSummaryStatistics> summarizingLong(ToLongFunction<? super T> mapper)`
-25. `static <T> Collector<T,?,Double> summingDouble(ToDoubleFunction<? super T> mapper)`
-26. `static <T> Collector<T,?,Integer> summingInt(ToIntFunction<? super T> mapper)`
-27. `static <T> Collector<T,?,Long> summingLong(ToLongFunction<? super T> mapper)`
-28. `static <T,C extends Collection<T>> Collector<T,?,C> toCollection(Supplier<C> collectionFactory)`
-29. `static <T> Collector<T,?,List<T>> toList()`
-30. `static <T> Collector<T,?,Set<T>> toSet()`
-31. `static <T,K,U> Collector<T,?,Map<K,U>> toMap(Function<? super T,? extends K> keyMapper, Function<? super T,? extends U> valueMapper)`
-32. `static <T,K,U> Collector<T,?,Map<K,U>> toMap(Function<? super T,? extends K> keyMapper, Function<? super T,? extends U> valueMapper, BinaryOperator<U> mergeFunction)`
-33. `static <T,K,U,M extends Map<K,U>> Collector<T,?,M> toMap(Function<? super T,? extends K> keyMapper, Function<? super T,? extends U> valueMapper, BinaryOperator<U> mergeFunction, Supplier<M> mapSupplier)`
-34. `static <T,K,U> Collector<T,?,ConcurrentMap<K,U>> toConcurrentMap(Function<? super T,? extends K> keyMapper, Function<? super T,? extends U> valueMapper)`
-35. `static <T,K,U> Collector<T,?,ConcurrentMap<K,U>> toConcurrentMap(Function<? super T,? extends K> keyMapper, Function<? super T,? extends U> valueMapper, BinaryOperator<U> mergeFunction)`
-36. `static <T,K,U,M extends ConcurrentMap<K,U>> Collector<T,?,M> toConcurrentMap(Function<? super T,? extends K> keyMapper, Function<? super T,? extends U> valueMapper, BinaryOperator<U> mergeFunction, Supplier<M> mapSupplier)`
-37. `static <T,A,R,RR> Collector<T,A,RR> collectingAndThen(Collector<T,A,R> downstream, Function<R,RR> finisher)`
+. ``static <T> Collector<T,?,Double> averagingDouble(ToDoubleFunction<? super T> mapper)``
+. ``static <T> Collector<T,?,Double> averagingInt(ToIntFunction<? super T> mapper)``
+. ``static <T> Collector<T,?,Double> averagingLong(ToLongFunction<? super T> mapper)``
+. ``static <T> Collector<T,?,Long> counting()``
+. ``static <T,K> Collector<T,?,Map<K,List<T>>> groupingBy(Function<? super T,? extends K> classifier)``
+. ``static <T,K,A,D> Collector<T,?,Map<K,D>> groupingBy(Function<? super T,? extends K> classifier, Collector<? super T,A,D> downstream)``
+. ``static <T,K,D,A,M extends Map<K,D>> Collector<T,?,M> groupingBy(Function<? super T,? extends K> classifier, Supplier<M> mapFactory, Collector<? super T,A,D> downstream)``
+. ``static <T,K> Collector<T,?,ConcurrentMap<K,List<T>>> groupingByConcurrent(Function<? super T,? extends K> classifier)``
+. ``static <T,K,A,D> Collector<T,?,ConcurrentMap<K,D>> groupingByConcurrent(Function<? super T,? extends K> classifier, Collector<? super T,A,D> downstream)``
+. ``static <T,K,A,D,M extends ConcurrentMap<K,D>> Collector<T,?,M> groupingByConcurrent(Function<? super T,? extends K> classifier, Supplier<M> mapFactory, Collector<? super T,A,D> downstream)``
+. ``static Collector<CharSequence,?,String> joining()``
+. ``static Collector<CharSequence,?,String> joining(CharSequence delimiter)``
+. ``static Collector<CharSequence,?,String> joining(CharSequence delimiter, CharSequence prefix, CharSequence suffix)``
+. ``static <T,U,A,R> Collector<T,?,R> mapping(Function<? super T,? extends U> mapper, Collector<? super U,A,R> downstream)``
+. ``static <T> Collector<T,?,Optional<T>> maxBy(Comparator<? super T> comparator)``
+. ``static <T> Collector<T,?,Optional<T>> minBy(Comparator<? super T> comparator)``
+. ``static <T> Collector<T,?,Map<Boolean,List<T>>> partitioningBy(Predicate<? super T> predicate)``
+. ``static <T,D,A> Collector<T,?,Map<Boolean,D>> partitioningBy(Predicate<? super T> predicate, Collector<? super T,A,D> downstream)``
+. ``static <T> Collector<T,?,Optional<T>> reducing(BinaryOperator<T> op)``
+. ``static <T> Collector<T,?,T> reducing(T identity, BinaryOperator<T> op)``
+. ``static <T,U> Collector<T,?,U> reducing(U identity, Function<? super T,? extends U> mapper, BinaryOperator<U> op)``
+. ``static <T> Collector<T,?,DoubleSummaryStatistics> summarizingDouble(ToDoubleFunction<? super T> mapper)``
+. ``static <T> Collector<T,?,IntSummaryStatistics> summarizingInt(ToIntFunction<? super T> mapper)``
+. ``static <T> Collector<T,?,LongSummaryStatistics> summarizingLong(ToLongFunction<? super T> mapper)``
+. ``static <T> Collector<T,?,Double> summingDouble(ToDoubleFunction<? super T> mapper)``
+. ``static <T> Collector<T,?,Integer> summingInt(ToIntFunction<? super T> mapper)``
+. ``static <T> Collector<T,?,Long> summingLong(ToLongFunction<? super T> mapper)``
+. ``static <T,C extends Collection<T>> Collector<T,?,C> toCollection(Supplier<C> collectionFactory)``
+. ``static <T> Collector<T,?,List<T>> toList()``
+. ``static <T> Collector<T,?,Set<T>> toSet()``
+. ``static <T,K,U> Collector<T,?,Map<K,U>> toMap(Function<? super T,? extends K> keyMapper, Function<? super T,? extends U> valueMapper)``
+. ``static <T,K,U> Collector<T,?,Map<K,U>> toMap(Function<? super T,? extends K> keyMapper, Function<? super T,? extends U> valueMapper, BinaryOperator<U> mergeFunction)``
+. ``static <T,K,U,M extends Map<K,U>> Collector<T,?,M> toMap(Function<? super T,? extends K> keyMapper, Function<? super T,? extends U> valueMapper, BinaryOperator<U> mergeFunction, Supplier<M> mapSupplier)``
+. ``static <T,K,U> Collector<T,?,ConcurrentMap<K,U>> toConcurrentMap(Function<? super T,? extends K> keyMapper, Function<? super T,? extends U> valueMapper)``
+. ``static <T,K,U> Collector<T,?,ConcurrentMap<K,U>> toConcurrentMap(Function<? super T,? extends K> keyMapper, Function<? super T,? extends U> valueMapper, BinaryOperator<U> mergeFunction)``
+. ``static <T,K,U,M extends ConcurrentMap<K,U>> Collector<T,?,M> toConcurrentMap(Function<? super T,? extends K> keyMapper, Function<? super T,? extends U> valueMapper, BinaryOperator<U> mergeFunction, Supplier<M> mapSupplier)``
+. ``static <T,A,R,RR> Collector<T,A,RR> collectingAndThen(Collector<T,A,R> downstream, Function<R,RR> finisher)``
 
 
-基本上可以认为这些返回Collector的方法都会被应用在Stream.collect()方法中(见附录A的29行)
+基本上可以认为这些返回Collector的方法都会被应用在Stream.collect()方法中(见<<appxa>>的29行)
 
-`<R,A> R collect(Collector<? super T,A,R> collector)`
+``<R,A> R collect(Collector<? super T,A,R> collector)``
 
 可以知道collect返回类型R对应Collectors各个方法的返回结果中第三个泛型类型
 
----
+<<<
 
 这三个方法用于计算平均值
 
-- `static <T> Collector<T,?,Double> averagingDouble(ToDoubleFunction<? super T> mapper)`
-- `static <T> Collector<T,?,Double> averagingInt(ToIntFunction<? super T> mapper)`
-- `static <T> Collector<T,?,Double> averagingLong(ToLongFunction<? super T> mapper)`
+- ``static <T> Collector<T,?,Double> averagingDouble(ToDoubleFunction<? super T> mapper)``
+- ``static <T> Collector<T,?,Double> averagingInt(ToIntFunction<? super T> mapper)``
+- ``static <T> Collector<T,?,Double> averagingLong(ToLongFunction<? super T> mapper)``
 
----
+<<<
 
-计算数量，等同于`Stream.count()`
+计算数量，等同于``Stream.count()``
 
-- `static <T> Collector<T,?,Long> counting()`
+- ``static <T> Collector<T,?,Long> counting()``
 
----
+<<<
 
-分组：对于stream的T类型元素，应用grouping by操作进行分组，返回结果是`Map<K,List<T>>`
+分组：对于stream的T类型元素，应用grouping by操作进行分组，返回结果是``Map<K,List<T>>``
 
-- `static <T,K> Collector<T,?,Map<K,List<T>>> groupingBy(Function<? super T,? extends K> classifier)`
-- `static <T,K,A,D> Collector<T,?,Map<K,D>> groupingBy(Function<? super T,? extends K> classifier, Collector<? super T,A,D> downstream)`
-- `static <T,K,D,A,M extends Map<K,D>> Collector<T,?,M> groupingBy(Function<? super T,? extends K> classifier, Supplier<M> mapFactory, Collector<? super T,A,D> downstream)`
-- `static <T,K> Collector<T,?,ConcurrentMap<K,List<T>>> groupingByConcurrent(Function<? super T,? extends K> classifier)`
-- `static <T,K,A,D> Collector<T,?,ConcurrentMap<K,D>> groupingByConcurrent(Function<? super T,? extends K> classifier, Collector<? super T,A,D> downstream)`
-- `static <T,K,A,D,M extends ConcurrentMap<K,D>> Collector<T,?,M> groupingByConcurrent(Function<? super T,? extends K> classifier, Supplier<M> mapFactory, Collector<? super T,A,D> downstream)`
+- ``static <T,K> Collector<T,?,Map<K,List<T>>> groupingBy(Function<? super T,? extends K> classifier)``
+- ``static <T,K,A,D> Collector<T,?,Map<K,D>> groupingBy(Function<? super T,? extends K> classifier, Collector<? super T,A,D> downstream)``
+- ``static <T,K,D,A,M extends Map<K,D>> Collector<T,?,M> groupingBy(Function<? super T,? extends K> classifier, Supplier<M> mapFactory, Collector<? super T,A,D> downstream)``
+- ``static <T,K> Collector<T,?,ConcurrentMap<K,List<T>>> groupingByConcurrent(Function<? super T,? extends K> classifier)``
+- ``static <T,K,A,D> Collector<T,?,ConcurrentMap<K,D>> groupingByConcurrent(Function<? super T,? extends K> classifier, Collector<? super T,A,D> downstream)``
+- ``static <T,K,A,D,M extends ConcurrentMap<K,D>> Collector<T,?,M> groupingByConcurrent(Function<? super T,? extends K> classifier, Supplier<M> mapFactory, Collector<? super T,A,D> downstream)``
 
-对于第一个只有一个Function参数的groupingBy方法而言，等同于调用第二个方法`groupingBy(classifier, toList())`
+对于第一个只有一个Function参数的groupingBy方法而言，等同于调用第二个方法``groupingBy(classifier, toList())``
 
-第二个groupingBy方法,返回结果`Map<K,D>`中的D，由指定的downstream返回类型D决定，例如(来自Jdk8 api doc)
+第二个groupingBy方法,返回结果``Map<K,D>``中的D，由指定的downstream返回类型D决定，
 
-```
-     Map<City, Set<String>> namesByCity
-         = people.stream().collect(groupingBy(Person::getCity,
-              mapping(Person::getLastName, toSet())));
-```
+.groupBy示例
+====
+[source,java]
+----
+Map<City, Set<String>> namesByCity = 
+  people.stream().collect(groupingBy(Person::getCity,
+        mapping(Person::getLastName, toSet())));
+----
+====
 
-第三个groupingBy与第二个相比，多一个参数`Supplier<M> mapFactory`，用于包装返回的Map为类型`<M>`。
+第三个groupingBy与第二个相比，多一个参数``Supplier<M> mapFactory``，用于包装返回的Map为类型``<M>``。
 
 另外三个带Concurrent的groupingBy方法，顾名思义，返回的是java.concurrent包里的集合。
 
-----
+<<<<
 
 拼接: 用于将元素拼接起来
 
-- `static Collector<CharSequence,?,String> joining()`
-- `static Collector<CharSequence,?,String> joining(CharSequence delimiter)`
-- `static Collector<CharSequence,?,String> joining(CharSequence delimiter, CharSequence prefix, CharSequence suffix)`
+- ``static Collector<CharSequence,?,String> joining()``
+- ``static Collector<CharSequence,?,String> joining(CharSequence delimiter)``
+- ``static Collector<CharSequence,?,String> joining(CharSequence delimiter, CharSequence prefix, CharSequence suffix)``
 
 第一个仅仅是将所有元素连接起来，没有任何连接字符；第二个方法指定一个连接符；第三个方法指定连接符、以及前缀和后缀——前缀和后缀仅仅出现在最终结果的最前面和最后。
 
-----
+<<<
 
 映射:
 
-- `static <T,U,A,R> Collector<T,?,R> mapping(Function<? super T,? extends U> mapper, Collector<? super U,A,R> downstream)`
+- ``static <T,U,A,R> Collector<T,?,R> mapping(Function<? super T,? extends U> mapper, Collector<? super U,A,R> downstream)``
 
-示例
+.mapping示例
+====
+[source,java]
+----
 
-```
  Map<City, Set<String>> lastNamesByCity
      = people.stream().collect(groupingBy(Person::getCity,
                                           mapping(Person::getLastName, toSet())));
-```
+----
+====
 
 输出
 
-```
-{"LA"=["Jason","Jackson"], "New York"=["Hunt","Wilson"]}
-```
-
 ----
+{"LA"=["Jason","Jackson"], "New York"=["Hunt","Wilson"]}
+----
+
+<<<
 
 排序: 最大或最小
 
-- `static <T> Collector<T,?,Optional<T>> maxBy(Comparator<? super T> comparator)`
-- `static <T> Collector<T,?,Optional<T>> minBy(Comparator<? super T> comparator)`
+- ``static <T> Collector<T,?,Optional<T>> maxBy(Comparator<? super T> comparator)``
+- ``static <T> Collector<T,?,Optional<T>> minBy(Comparator<? super T> comparator)``
 
-----
+<<<
 
 一分为二: 根据判定，将stream一分为二
 
-- `static <T> Collector<T,?,Map<Boolean,List<T>>> partitioningBy(Predicate<? super T> predicate)`
-- `static <T,D,A> Collector<T,?,Map<Boolean,D>> partitioningBy(Predicate<? super T> predicate, Collector<? super T,A,D> downstream)`
+- ``static <T> Collector<T,?,Map<Boolean,List<T>>> partitioningBy(Predicate<? super T> predicate)``
+- ``static <T,D,A> Collector<T,?,Map<Boolean,D>> partitioningBy(Predicate<? super T> predicate, Collector<? super T,A,D> downstream)``
 
 如何一分为二呢？通过返回一个key为Boolean的Map实现的。
 
-----
+<<<<
 
 化归: 将stream的元素按照某种操作进行化归操作——即集合中的前后元素应用该操作之后继续和接下来的元素应用该操作，例如对一个自然数集合应用加法之类
 
-`counting()`等同于`reducing(0L, e -> 1L, Long::sum)`
-`minBy()`等同于`reducing(BinaryOperator.minBy(comparator))`
-`maxBy()`等同于`reducing(BinaryOperator.maxBy(comparator))`
+- ``counting()``等同于``reducing(0L, e -> 1L, Long::sum)``
+- ``minBy()``等同于``reducing(BinaryOperator.minBy(comparator))``
+- ``maxBy()``等同于``reducing(BinaryOperator.maxBy(comparator))``
 
-- `static <T> Collector<T,?,Optional<T>> reducing(BinaryOperator<T> op)`
-- `static <T> Collector<T,?,T> reducing(T identity, BinaryOperator<T> op)`
-- `static <T,U> Collector<T,?,U> reducing(U identity, Function<? super T,? extends U> mapper, BinaryOperator<U> op)`
+- ``static <T> Collector<T,?,Optional<T>> reducing(BinaryOperator<T> op)``
+- ``static <T> Collector<T,?,T> reducing(T identity, BinaryOperator<T> op)``
+- ``static <T,U> Collector<T,?,U> reducing(U identity, Function<? super T,? extends U> mapper, BinaryOperator<U> op)``
 
-注意:`BinaryOperator`是一个函数接口(FunctionalInterface)
+注意:``BinaryOperator``是一个函数接口(FunctionalInterface)
 
-```
+[source,java]
+----
 @FunctionalInterface
 public interface BinaryOperator<T> extends BiFunction<T,T,T> {
     public static <T> BinaryOperator<T> minBy(Comparator<? super T> comparator) {
@@ -1109,7 +1264,7 @@ public interface BinaryOperator<T> extends BiFunction<T,T,T> {
         return (a, b) -> comparator.compare(a, b) >= 0 ? a : b;
     }
 }
-```
+----
 
 可以看到它提供了两个静态方法maxBy和minBy。当然，也可以通过实现BiFunction的apply()方法，提供其他的BinaryOperator。至于BiFunction，请参见另一篇"Lambda表达式及相关"的附录A。
 
@@ -1118,97 +1273,104 @@ public interface BinaryOperator<T> extends BiFunction<T,T,T> {
 第三个reducing方法，在第二个reducing方法之上，多了一个Function，等同于先应用
 Stream.map(Function)再进行Stream.reduce(Object, BinaryOperator)。
 
-----
+<<<
 
 总结: 将stream的每个元素映射为Int, Long, 或Double类型，再转换为summary statistics。
 
-- `static <T> Collector<T,?,DoubleSummaryStatistics> summarizingDouble(ToDoubleFunction<? super T> mapper)`
-- `static <T> Collector<T,?,IntSummaryStatistics> summarizingInt(ToIntFunction<? super T> mapper)`
-- `static <T> Collector<T,?,LongSummaryStatistics> summarizingLong(ToLongFunction<? super T> mapper)`
+- ``static <T> Collector<T,?,DoubleSummaryStatistics> summarizingDouble(ToDoubleFunction<? super T> mapper)``
+- ``static <T> Collector<T,?,IntSummaryStatistics> summarizingInt(ToIntFunction<? super T> mapper)``
+- ``static <T> Collector<T,?,LongSummaryStatistics> summarizingLong(ToLongFunction<? super T> mapper)``
 
 注意，这三个方法分别对应IntSummaryStatistics, LongSummaryStatistics和DoubleSummaryStatistics。 
 简单地讲，这三个SummaryStatistics返回的是所应用集合的计数count, 算术和sum, 最大值max, 最小值min和平均值average。DoubleSummaryStatistics略有不同。
 
-----
+<<<
 
 求和: 计算集合元素mapper的算术和，包括三种基本类型——Int, Long和Double
 
-- `static <T> Collector<T,?,Double> summingDouble(ToDoubleFunction<? super T> mapper)`
-- `static <T> Collector<T,?,Integer> summingInt(ToIntFunction<? super T> mapper)`
-- `static <T> Collector<T,?,Long> summingLong(ToLongFunction<? super T> mapper)`
+- ``static <T> Collector<T,?,Double> summingDouble(ToDoubleFunction<? super T> mapper)``
+- ``static <T> Collector<T,?,Integer> summingInt(ToIntFunction<? super T> mapper)``
+- ``static <T> Collector<T,?,Long> summingLong(ToLongFunction<? super T> mapper)``
 
 相较于上一组返回总结的方法，这一组方法返回的是算术和。比较简单，就不展开说明了。
 
-----
+<<<
 
 转化: 这一组9个接口非常重要，顾名思义，用于转化为指定的集合类型结果
 
-- `static <T,C extends Collection<T>> Collector<T,?,C> toCollection(Supplier<C> collectionFactory)`
-- `static <T> Collector<T,?,List<T>> toList()`
-- `static <T> Collector<T,?,Set<T>> toSet()`
-- `static <T,K,U> Collector<T,?,Map<K,U>> toMap(Function<? super T,? extends K> keyMapper, Function<? super T,? extends U> valueMapper)`
-- `static <T,K,U> Collector<T,?,Map<K,U>> toMap(Function<? super T,? extends K> keyMapper, Function<? super T,? extends U> valueMapper, BinaryOperator<U> mergeFunction)`
-- `static <T,K,U,M extends Map<K,U>> Collector<T,?,M> toMap(Function<? super T,? extends K> keyMapper, Function<? super T,? extends U> valueMapper, BinaryOperator<U> mergeFunction, Supplier<M> mapSupplier)`
-- `static <T,K,U> Collector<T,?,ConcurrentMap<K,U>> toConcurrentMap(Function<? super T,? extends K> keyMapper, Function<? super T,? extends U> valueMapper)`
-- `static <T,K,U> Collector<T,?,ConcurrentMap<K,U>> toConcurrentMap(Function<? super T,? extends K> keyMapper, Function<? super T,? extends U> valueMapper, BinaryOperator<U> mergeFunction)`
-- `static <T,K,U,M extends ConcurrentMap<K,U>> Collector<T,?,M> toConcurrentMap(Function<? super T,? extends K> keyMapper, Function<? super T,? extends U> valueMapper, BinaryOperator<U> mergeFunction, Supplier<M> mapSupplier)`
+- ``static <T,C extends Collection<T>> Collector<T,?,C> toCollection(Supplier<C> collectionFactory)``
+- ``static <T> Collector<T,?,List<T>> toList()``
+- ``static <T> Collector<T,?,Set<T>> toSet()``
+- ``static <T,K,U> Collector<T,?,Map<K,U>> toMap(Function<? super T,? extends K> keyMapper, Function<? super T,? extends U> valueMapper)``
+- ``static <T,K,U> Collector<T,?,Map<K,U>> toMap(Function<? super T,? extends K> keyMapper, Function<? super T,? extends U> valueMapper, BinaryOperator<U> mergeFunction)``
+- ``static <T,K,U,M extends Map<K,U>> Collector<T,?,M> toMap(Function<? super T,? extends K> keyMapper, Function<? super T,? extends U> valueMapper, BinaryOperator<U> mergeFunction, Supplier<M> mapSupplier)``
+- ``static <T,K,U> Collector<T,?,ConcurrentMap<K,U>> toConcurrentMap(Function<? super T,? extends K> keyMapper, Function<? super T,? extends U> valueMapper)``
+- ``static <T,K,U> Collector<T,?,ConcurrentMap<K,U>> toConcurrentMap(Function<? super T,? extends K> keyMapper, Function<? super T,? extends U> valueMapper, BinaryOperator<U> mergeFunction)``
+- ``static <T,K,U,M extends ConcurrentMap<K,U>> Collector<T,?,M> toConcurrentMap(Function<? super T,? extends K> keyMapper, Function<? super T,? extends U> valueMapper, BinaryOperator<U> mergeFunction, Supplier<M> mapSupplier)``
 
 
-`toCollection(Supplier<C> collectionFactory)`: 将输入元素集中放进一个新集合中，这个集合属于Collection。  
-当然，很贴心地，Collecors提供了两个便捷方法`toList()`和`toSet()`，分别返回ArrayList和HashSet。
+``toCollection(Supplier<C> collectionFactory)``: 将输入元素集中放进一个新集合中，这个集合属于Collection。  
+当然，很贴心地，Collecors提供了两个便捷方法``toList()``和``toSet()``，分别返回ArrayList和HashSet。
 
-接下来的三个方法都是toMap，顾名思义，就是将stream的元素放入一个map并返回。既然是map，就需要key和value。所以，最基本的`toMap(Function keyMapper, Function valueMapper)`需要分别提供对key的映射和对value的映射。
+接下来的三个方法都是toMap，顾名思义，就是将stream的元素放入一个map并返回。既然是map，就需要key和value。所以，最基本的``toMap(Function keyMapper, Function valueMapper)``需要分别提供对key的映射和对value的映射。
 
-例如
+.Collectors.toMap
+====
+[source,java]
+----
+Map<Student, Double> studentToGPA
+    students.stream().collect(toMap(Functions.identity(),        <1>
+                              student -> computeGPA(student)));   
 
-```
- Map<Student, Double> studentToGPA
-     students.stream().collect(toMap(Functions.identity(),
-                                     student -> computeGPA(student)));
-```
-或者
-```
- Map<String, Student> studentIdToStudent
-     students.stream().collect(toMap(Student::getId,
-                                     Functions.identity());
-```
 
-当然，调用这个toMap方法的时候，如果key有重复的(duplicated)的时候，会抛出 `java.lang.IllegalStateException: Duplicate key`异常(*这个异常有问题，明明是key重复，提示的却是value*)。
+Map<String, Student> studentIdToStudent
+    students.stream().collect(toMap(Student::getId,               <2>
+                              Functions.identity());              
+----
+<1> 代表对象本身
+<2> 用到了方法引用(##Method Reference##)
+====
 
-为了解决key重复的情况，需要提供解决办法，于是调用`toMap(Function keyMapper, Function valueMapper, BinaryOperator mergeFunction)`——最后一个参数用于指定合并规则，例如
+当然，调用这个toMap方法的时候，如果key有重复的(duplicated)的时候，会抛出 ``java.lang.IllegalStateException: Duplicate key``异常
 
-```
- Map<String, String> phoneBook
-     people.stream().collect(toMap(Person::getName,
-                                   Person::getAddress,
-                                   (s, a) -> s + ", " + a));
-```
+为了解决key重复的情况，需要提供解决办法，于是调用``toMap(Function keyMapper, Function valueMapper, BinaryOperator mergeFunction)``，最后一个参数用于指定合并规则，
 
-第三个toMap方法，则是在此基础上，提供一个mapSupplier——即map的factory——因为，默认toMap返回的是HashMap，当希望使用其他map的时候，则需要加上第四个参数，例如
+.Collectors.toMap
+====
+[source,java]
+----
+Map<String, String> phoneBook
+    people.stream().collect(toMap(Person::getName,
+                            Person::getAddress,
+                            (s, a) -> s + ", " + a));         <1>
+----
+<1> 合并规则
+====
 
-```
+第三个toMap方法，则是在此基础上，提供一个mapSupplier——即map的factory——因为，默认toMap返回的是HashMap，当希望使用其他map的时候，则需要加上第四个参数，
+
+.Collectors.toMap3
+====
+[source,java]
+----
 Map<String, String> phoneBook
  people.stream().collect(toMap(Person::getName,
-                               Person::getAddress,
-                               (s, a) -> s + ", " + a,
-                               TreeMap::new));
-```
-返回的map是TreeMap。
-
+                        Person::getAddress,
+                        (s, a) -> s + ", " + a,
+                        TreeMap::new));                 <1>
 ----
+<1> 指定Map的构造方法，此处是TreeMap
+====
 
-最后，`collectingAndThen(Collector downStream, Function finisher)`会额外做一个转化，将一个Collector转化为另一种类型，例如
+<<<
 
-```
- List<String> people
+最后，``collectingAndThen(Collector downStream, Function finisher)``会额外做一个转化，将一个Collector转化为另一种类型，
+
+Collectors.toMap2
+====
+[source,java]
+----
+List<String> people
      = people.stream().collect(collectingAndThen(toList(), Collections::unmodifiableList));
-```
-
-  [3]: http://static.zybuluo.com/wyq/4v2kv6zcd5stn998x1me9bjs/image.png
-  [4]: http://static.zybuluo.com/wyq/mva0uak2t9sbs1e97ux4ehq7/image.png
-  [5]: http://static.zybuluo.com/wyq/yw2i0qzkrhl4ta6bdakhabvd/image.png
-  [6]: http://static.zybuluo.com/wyq/f6a01v1bmn2u74dm65wkuwg6/image.png
-  [7]: http://static.zybuluo.com/wyq/tw4l2pihoqqdiqdw63tvim1p/image.png
-  [8]: http://static.zybuluo.com/wyq/oru1jd30remb5eiob5oh0b0l/image.png
-  [9]: http://static.zybuluo.com/wyq/f75guqkkm5x4vexabxh1iu75/image.png
-  [10]: https://docs.oracle.com/javase/8/docs/api/index.html?java/util/stream/package-tree.html
+----
+====
