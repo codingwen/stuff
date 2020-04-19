@@ -1,0 +1,176 @@
+= Stream操作一览
+
+.操作表
+[cols="1,3,3", options="header"]
+|===
+|序号
+| 方法签名
+| 类型
+
+|{counter:index}
+| ``Stream<T> filter(Predicate<? super T> predicate)``
+| intermediate
+
+|{counter:index}
+| ``Stream<T> distinct()``
+| intermediate
+
+|{counter:index}
+| ``Stream<T> limit(long maxSize)`` 
+| intermediate
+
+|{counter:index}
+| ``Stream<T> skip(long n)`` 
+| intermediate
+
+|{counter:index}
+| `Stream<T> sorted()` 
+| intermediate
+
+|{counter:index}
+| `Stream<T> sorted(Comparator<? super T> comparator)` 
+| intermediate
+
+|{counter:index}
+| `<R> Stream<R> map(Function<? super T,? extends R> mapper)` 
+| intermediate
+
+|{counter:index}
+| `DoubleStream mapToDouble(ToDoubleFunction<? super T> mapper)` | intermediate
+
+|{counter:index}
+| `IntStream mapToInt(ToIntFunction<? super T> mapper)` 
+| intermediate
+
+|{counter:index}
+| `LongStream mapToLong(ToLongFunction<? super T> mapper)` 
+| intermediate
+
+|{counter:index}
+| `<R> Stream<R> flatMap(Function<? super T,? extends Stream<? extends R>> mapper)` 
+| intermediate
+
+|{counter:index} 
+| `DoubleStream flatMapToDouble(Function<? super T,? extends DoubleStream> mapper)` 
+| intermediate
+
+|{counter:index} 
+| `IntStream flatMapToInt(Function<? super T,? extends IntStream> mapper)` 
+| intermediate
+
+|{counter:index} 
+| `LongStream flatMapToLong(Function<? super T,? extends LongStream> mapper)` 
+| intermediate
+
+|{counter:index}
+| `Stream<T> peek(Consumer<? super T> action)` 
+| intermediate
+
+|{counter:index} 
+| `S parallel()` 
+| intermediate
+
+|{counter:index}
+| `S sequential()` 
+| intermediate
+
+|{counter:index}
+| `S unordered()` 
+| intermediate
+
+|{counter:index}
+| `boolean allMatch(Predicate<? super T> predicate)` 
+| terminal
+
+|{counter:index}
+| `boolean anyMatch(Predicate<? super T> predicate)` 
+| terminal 
+
+|{counter:index}
+| `boolean noneMatch(Predicate<? super T> predicate)` 
+| terminal
+
+|{counter:index}
+| `Optional<T> findAny()` 
+| terminal
+
+|{counter:index}
+| `Optional<T> findFirst()` 
+| terminal
+
+|{counter:index}
+| `void forEach(Consumer<? super T> action)` 
+| terminal
+
+|{counter:index}
+| `void forEachOrdered(Consumer<? super T> action)` 
+| terminal
+
+|{counter:index}
+| `Optional<T> reduce(BinaryOperator<T> accumulator)` 
+| terminal
+
+|{counter:index}
+| `T reduce(T identity, BinaryOperator<T> accumulator)` 
+| terminal
+
+|{counter:index}
+| `<U> U reduce(U identity, BiFunction<U,? super T,U> accumulator, BinaryOperator<U> combiner)` 
+| terminal
+
+|{counter:index}
+| `<R,A> R collect(Collector<? super T,A,R> collector)` 
+| terminal
+
+|{counter:index}
+| `<R> R collect(Supplier<R> supplier, BiConsumer<R,? super T> accumulator, BiConsumer<R,R> combiner)` 
+| terminal
+
+|{counter:index}
+| `Optional<T> max(Comparator<? super T> comparator)` 
+| terminal
+
+|{counter:index}
+| `Optional<T> min(Comparator<? super T> comparator)` 
+| terminal
+
+|{counter:index}
+| `long count()` 
+| terminal
+
+|{counter:index}
+| `Object[] toArray()` 
+| terminal
+
+|{counter:index}
+| `<A> A[] toArray(IntFunction<A[]> generator)` 
+| terminal
+
+|{counter:index}
+| `static <T> Stream<T> of(T... values)` 
+| constructional
+
+|{counter:index}
+| `static <T> Stream<T> of(T t)` 
+| constructional
+
+|{counter:index}
+| `static <T> Stream.Builder<T> builder()` 
+| constructional
+
+|{counter:index}
+| `static <T> Stream<T> generate(Supplier<T> s)` 
+| constructional
+
+|{counter:index}
+| `static <T> Stream<T> iterate(T seed, UnaryOperator<T> f)` 
+| constructional
+
+|{counter:index}
+| `static <T> Stream<T> concat(Stream<? extends T> a, Stream<? extends T> b)` 
+| 
+
+|{counter:index}
+| `static <T> Stream<T> empty()` 
+| 
+|===

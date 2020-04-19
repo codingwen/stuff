@@ -13,11 +13,6 @@ wen
 
 <<<
 
-== REPL(Read-Eval-Print Loop)
-
-- Intellij
-- kotlinc
-
 == 和Java相比
 
 === if可做表达式

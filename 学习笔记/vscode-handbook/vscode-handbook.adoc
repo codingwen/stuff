@@ -1,0 +1,17 @@
+= vscode手册
+Wen
+:doctype: docbook
+:encoding: utf-8
+:lang: cn
+:toc: left
+:toc-level: 4
+:toc-title: 目录
+:sectnums:
+:nofooter:
+:last-update-label!:
+:icons: font
+:appendix-caption: 附录
+
+include::nav.adoc[offsetlevel=+1]
+
+include::edit.adoc[offsetlevel=+1]

@@ -1,0 +1,127 @@
+
+= 概览
+
+集合在Java中使用得十分频繁，很多时候都在循环-处理这样的流程。以一个操作数据的常见SQL为例``SELECT id, MAX(value) from transactions``, 期望结果是显而易见的，如果使用集合相关API操作的话，少不了循环-排序-取值。于是，从JDK8开始，引入Stream API用于简化和强化集合操作。
+另外，针对真正非常大的集合数据，如何高效地处理？如果能充分利用计算机的多核心的话，就能够达到，但是曾经使用Java编写并行代码，困难且易错。
+
+以一个常见的集合处理场景为例：从一组交易记录(transactions)中，找出类型为grocery的记录，并且按交易值倒序的那些记录。
+
+
+.传统方式
+====
+[source,java]
+----
+
+List<Transaction> groceryTransactions = new Arraylist<>();
+for(Transaction t: transactions){
+  if(t.getType() == Transaction.GROCERY){
+    groceryTransactions.add(t);
+  }
+}
+Collections.sort(groceryTransactions, new Comparator(){
+  public int compare(Transaction t1, Transaction t2){
+    return t2.getValue().compareTo(t1.getValue());
+  }
+});
+List<Integer> transactionIds = new ArrayList<>();
+for(Transaction t: groceryTransactions){
+  transactionsIds.add(t.getId());
+}
+----
+====
+
+.Stream API方式
+====
+[source,java]
+----
+List<Integer> transactionsIds = 
+    transactions.stream()
+                .filter(t -> t.getType() == Transaction.GROCERY)
+                .sorted(comparing(Transaction::getValue).reversed())
+                .map(Transaction::getId)
+                .collect(toList());
+----
+====
+
+
+上面代码处理流程可以通过下图表示
+
+image::images/EQ5G8dt9&Kf!.png[流程示意图]
+
+首先，从list中通过``stream()``得到一个stream，接下来，通过一组操作(filter,sorted,map,collect)连接成一个处理的pipeline，可以被当作对数据的一个query。
+
+
+.并行化处理
+====
+[source,java]
+----
+List<Integer> transactionsIds = 
+    transactions.parallelStream()                                       <1>
+                .filter(t -> t.getType() == Transaction.GROCERY)
+                .sorted(comparing(Transaction::getValue).reversed())
+                .map(Transaction::getId)
+                .collect(toList());
+----
+<1> 通过``parallelStream()``就可以对stream进行并行处理
+====
+
+== 定义(Definition)
+
+那么，通过上面的例子，可以讲讲什么是Stream。字面的定义是：
+
+[quote]
+--
+a sequence of elements from a source that supports aggregate operations
+--
+
+如图
+
+image::images/dVeT84F&2cu.png[]
+
+这个定义包括
+
+- **Sequence of elements**: A stream provides an interface to a sequenced set of values of a specific element type. However, streams don’t actually store elements; they are computed on demand.
+- **Source**: Streams consume from a data-providing source such as collections, arrays, or I/O resources
+- **Aggregate operations**: Streams support SQL-like operations and common operations from functional programing languages, such as filter, map, reduce, find, match, sorted, and so on.
+
+
+另外，stream操作有两个基本特征是集合所不具备的
+
+- **Pipelining**: Many stream operations return a stream themselves. This allows operations to be chained to form a larger pipeline. This enables certain optimizations, such as laziness and short-circuiting, which we explore later.
+- **Internal iteration**: In contrast to collections, which are iterated explicitly (external iteration), stream operations do the iteration behind the scenes for you. 
+
+下图展示了更多地细节
+
+image::images/707521b17462b5d857cb0f0ead9eb64e166d99d9.png[] 
+
+== 对比(Stream vs Collection)
+
+那么，stream和collection的差别是什么呢？简要来说，##collections are about data and streams are about computations##。
+
+不那么严谨地说，Collection要求用户自己进行迭代操作(所谓external iteration)； 
+
+而stream使用internal iteration，使用者只需要提供各种function告诉stream要做什么。
+
+== API概览
+
+.stream api overview
+image::images/23981eda0c891c7881a09aa3dc1f054acca1e026.png[] 
+
+可以看到Collectors和StreamSupport是两个工具类。
+
+== 包结构
+
+主要的类和接口都位于 java.util.stream包中，结构图如下
+
+.java.util.stream包
+image::images/7d413cb435bfde9f85e7e729d2aead5f0d0e4bad.png[] 
+
+可以看到位于顶端的是一个接口BaseStream和一个抽象类PipelineHelper，它们定下了stream的基本逻辑：
+Stream持有数据结构，PipelineHelper用于数据处理
+
+.BaseStream
+image::images/7a2f385f213bf726cdf803ef3cf2614d3054b80f.png[] 
+
+
+.PipelineHelper(这是一个non-public的类)
+image::images/19711846704a2d8aeead809124441b5bea62215d.png[]

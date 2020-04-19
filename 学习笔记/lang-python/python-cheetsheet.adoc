@@ -1,0 +1,34 @@
+= Python Cheetsheet
+Wen
+:doctype: docbook
+:encoding: utf-8
+:lang: cn
+:toc: left
+:toc-level: 4
+:toc-title: 目录
+:sectnums:
+:nofooter:
+:last-update-label!:
+:icons: font
+:appendix-caption: 附录
+:official: link:https://code.visualstudio.com/docs/python/python-tutorial[official, window="_blank"]
+
+作为脚本文件，应遵循一定规范，比如文件要以``#!``开头，最好加入支持utf8编码的声明
+
+[TIP]
+--
+#(octothorpe)有很多名字，如pound, hash, mesh等，都可以
+--
+
+[source,python]
+----
+#! /usr/local/bin/python        <1>
+# -*- coding: utf-8 -*-         <2>
+----
+<1> 使用正确的路径
+<2> 就这么写
+
+////
+从字符串开始
+////
+include::char-sequence.adoc[offsetlevel=+1]

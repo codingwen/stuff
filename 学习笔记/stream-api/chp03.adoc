@@ -1,0 +1,166 @@
+= Stream construction(构造方法)
+
+== built-in(内置)
+
+了解了stream支持的操作之后，看一下如果构造一个stream。通过之前的例子可以看到，Stream的静态方法``of(T ..)``可以构造一个stream
+
+=== of(T..)
+
+- `static <T> Stream<T> of(T t)`
+- `static <T> Stream<T> of(T... values)`
+
+除了of()方法之外，Stream类还提供了其他静态方法builder,generate,iterate用于构造一个stream
+
+=== builder()
+
+- `static <T> Stream.Builder<T> builder()`
+
+返回一个Stream的builder。
+
+查看其源码
+
+.Stream.builder()
+[source,java]
+----
+public static<T> Builder<T> builder() {
+    return new Streams.StreamBuilderImpl<>();
+}
+----
+
+可以看出实际是通过Stream的帮助类Streams的静态子类构造的。示例
+
+.Stream.builder()
+====
+[source, java]
+----
+Stream<String> streamBuilder =
+  Stream.<String>builder().add("a").add("b").add("c").build();
+----
+====
+
+=== generate()
+
+
+返回一个infinite,sequential,unordered的stream。元素均由Supplier产生。这个方法适合用来生成constant streams,streams of random elements等。
+
+- `static <T> Stream<T> generate(Supplier<T> s)`
+
+.Stream.generate()
+====
+[source, java]
+----
+int days = Period.between(start, end).getDays();
+
+List<LocalDate> serials = Stream.iterate(start, d -> d.plusDays(1)).limit(days+1).collect(Collectors.toList());
+
+----
+====
+
+=== iterate()
+
+返回一个infinite,sequential,ordered的stream。迭代使用函数f和初始元素seed，生成由seed,f(seed),f(f(seed))等一系列元素组成的stream。注意UnaryOperator是一元操作符。
+
+- `static <T> Stream<T> iterate(T seed, UnaryOperator<T> f)`
+
+.Stream.generate()
+====
+[source, java]
+----
+Stream<Integer> streamIterated = Stream.iterate(40, n -> n + 2).limit(20);
+----
+====
+
+以上两种静态方法``generate()``和``iterate()``创建的stream可以是无限(infinite)的。这意味着，这两个静态方法可以用于支持一些真正的大数据操作。
+
+== collection
+
+可以通过集合类的新接口方法创建stream。比如List, Set, Map之类的``stream()``方法，
+
+.stream()源码
+[source, java]
+----
+default Stream<E> stream() {
+    return StreamSupport.stream(spliterator(), false);
+}
+----
+
+.parallelStream()源码
+[source, java]
+----
+default Stream<E> parallelStream() {
+    return StreamSupport.stream(spliterator(), true);
+}
+----
+
+可以看到这两个方法都是接口默认方法。
+
+.of()源码
+[source, java]
+----
+public static<T> Stream<T> of(T t) {
+    return StreamSupport.stream(new Streams.StreamBuilderImpl<>(t), false);
+}
+----
+
+可以看出来实际都是调用StreamSupport的``stream(Streams.StreamBuilderImpl<T>, boolean)``方法。
+
+== array
+
+数组的工具类Arrays也提供构造stream的静态方法
+
+.arrays构造stream源码
+[source, java]
+----
+public static <T> Stream<T> stream(T[] array) {
+    return stream(array, 0, array.length);
+}
+
+public static <T> Stream<T> stream(T[] array, int startInclusive, int endExclusive) {
+    return StreamSupport.stream(spliterator(array, startInclusive, endExclusive), false);
+}
+----
+
+== file
+
+Java 8也提供跟File相关的构造stream的方法。
+
+比如Files类提供几个静态方法，可以得到stream实例：
+
+- `static Stream<Path> find(Path start, int maxDepth, BiPredicate<Path,BasicFileAttributes> matcher, FileVisitOption... options) throws IOException`
+- `static Stream<String> lines(Path path)`
+- `static Stream<String> lines(Path path, Charset cs)`
+- `Stream<Path> list(Path dir)`
+- `static Stream<Path> walk(Path start, FileVisitOption... options)`
+- `static Stream<Path> walk(Path start, int maxDepth, FileVisitOption... options)`
+- `static Stream<Path> list(Path dir)`
+
+还有BufferedReader的方法：
+
+- `Stream<String> lines()`
+
+以及java.util.jar.JarFile提供的
+
+- `Stream<JarEntry>	stream()`
+
+java.uitl.zip提供的
+
+- `Stream<? extends ZipEntry> stream()`
+
+== streamsupport
+
+通过StreamSupport的一组stream方法，也可以构造stream。它提供了3对方法，支持产生基本类型的stream
+
+- `static DoubleStream doubleStream(Spliterator.OfDouble spliterator, boolean parallel)`
+- `static DoubleStream doubleStream(Supplier<? extends Spliterator.OfDouble> supplier, int characteristics, boolean parallel)`
+- `static IntStream	intStream(Spliterator.OfInt spliterator, boolean parallel)`
+- `static IntStream	intStream(Supplier<? extends Spliterator.OfInt> supplier, int characteristics, boolean parallel)`
+- `static LongStream longStream(Spliterator.OfLong spliterator, boolean parallel)`
+- `static LongStream longStream(Supplier<? extends Spliterator.OfLong> supplier, int characteristics, boolean parallel)`
+
+以及一对方法用于提供引用类型的stream
+
+- `static <T> Stream<T>	stream(Spliterator<T> spliterator, boolean parallel)`
+- `static <T> Stream<T>	stream(Supplier<? extends Spliterator<T>> supplier, int characteristics, boolean parallel)`
+
+
+至于这些方法中所需要的spliterator从何而来？Java 8提供了相应的工具类Spliterators，可以方便地构造出所需要的spliterator，当然，如果实在没有符合要求的构造方法，只能自己实现。

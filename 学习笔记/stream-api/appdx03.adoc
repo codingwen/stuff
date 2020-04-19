@@ -1,0 +1,279 @@
+= Collectors一览
+
+按照Jave API的习惯，看得出来Collectors是Collector的工具类。提供了一些outboxing的静态方法用于redunction操作。官方文档给出了一些示例，这里对其API方法做一个整理。
+
+. ``static <T> Collector<T,?,Double> averagingDouble(ToDoubleFunction<? super T> mapper)``
+. ``static <T> Collector<T,?,Double> averagingInt(ToIntFunction<? super T> mapper)``
+. ``static <T> Collector<T,?,Double> averagingLong(ToLongFunction<? super T> mapper)``
+. ``static <T> Collector<T,?,Long> counting()``
+. ``static <T,K> Collector<T,?,Map<K,List<T>>> groupingBy(Function<? super T,? extends K> classifier)``
+. ``static <T,K,A,D> Collector<T,?,Map<K,D>> groupingBy(Function<? super T,? extends K> classifier, Collector<? super T,A,D> downstream)``
+. ``static <T,K,D,A,M extends Map<K,D>> Collector<T,?,M> groupingBy(Function<? super T,? extends K> classifier, Supplier<M> mapFactory, Collector<? super T,A,D> downstream)``
+. ``static <T,K> Collector<T,?,ConcurrentMap<K,List<T>>> groupingByConcurrent(Function<? super T,? extends K> classifier)``
+. ``static <T,K,A,D> Collector<T,?,ConcurrentMap<K,D>> groupingByConcurrent(Function<? super T,? extends K> classifier, Collector<? super T,A,D> downstream)``
+. ``static <T,K,A,D,M extends ConcurrentMap<K,D>> Collector<T,?,M> groupingByConcurrent(Function<? super T,? extends K> classifier, Supplier<M> mapFactory, Collector<? super T,A,D> downstream)``
+. ``static Collector<CharSequence,?,String> joining()``
+. ``static Collector<CharSequence,?,String> joining(CharSequence delimiter)``
+. ``static Collector<CharSequence,?,String> joining(CharSequence delimiter, CharSequence prefix, CharSequence suffix)``
+. ``static <T,U,A,R> Collector<T,?,R> mapping(Function<? super T,? extends U> mapper, Collector<? super U,A,R> downstream)``
+. ``static <T> Collector<T,?,Optional<T>> maxBy(Comparator<? super T> comparator)``
+. ``static <T> Collector<T,?,Optional<T>> minBy(Comparator<? super T> comparator)``
+. ``static <T> Collector<T,?,Map<Boolean,List<T>>> partitioningBy(Predicate<? super T> predicate)``
+. ``static <T,D,A> Collector<T,?,Map<Boolean,D>> partitioningBy(Predicate<? super T> predicate, Collector<? super T,A,D> downstream)``
+. ``static <T> Collector<T,?,Optional<T>> reducing(BinaryOperator<T> op)``
+. ``static <T> Collector<T,?,T> reducing(T identity, BinaryOperator<T> op)``
+. ``static <T,U> Collector<T,?,U> reducing(U identity, Function<? super T,? extends U> mapper, BinaryOperator<U> op)``
+. ``static <T> Collector<T,?,DoubleSummaryStatistics> summarizingDouble(ToDoubleFunction<? super T> mapper)``
+. ``static <T> Collector<T,?,IntSummaryStatistics> summarizingInt(ToIntFunction<? super T> mapper)``
+. ``static <T> Collector<T,?,LongSummaryStatistics> summarizingLong(ToLongFunction<? super T> mapper)``
+. ``static <T> Collector<T,?,Double> summingDouble(ToDoubleFunction<? super T> mapper)``
+. ``static <T> Collector<T,?,Integer> summingInt(ToIntFunction<? super T> mapper)``
+. ``static <T> Collector<T,?,Long> summingLong(ToLongFunction<? super T> mapper)``
+. ``static <T,C extends Collection<T>> Collector<T,?,C> toCollection(Supplier<C> collectionFactory)``
+. ``static <T> Collector<T,?,List<T>> toList()``
+. ``static <T> Collector<T,?,Set<T>> toSet()``
+. ``static <T,K,U> Collector<T,?,Map<K,U>> toMap(Function<? super T,? extends K> keyMapper, Function<? super T,? extends U> valueMapper)``
+. ``static <T,K,U> Collector<T,?,Map<K,U>> toMap(Function<? super T,? extends K> keyMapper, Function<? super T,? extends U> valueMapper, BinaryOperator<U> mergeFunction)``
+. ``static <T,K,U,M extends Map<K,U>> Collector<T,?,M> toMap(Function<? super T,? extends K> keyMapper, Function<? super T,? extends U> valueMapper, BinaryOperator<U> mergeFunction, Supplier<M> mapSupplier)``
+. ``static <T,K,U> Collector<T,?,ConcurrentMap<K,U>> toConcurrentMap(Function<? super T,? extends K> keyMapper, Function<? super T,? extends U> valueMapper)``
+. ``static <T,K,U> Collector<T,?,ConcurrentMap<K,U>> toConcurrentMap(Function<? super T,? extends K> keyMapper, Function<? super T,? extends U> valueMapper, BinaryOperator<U> mergeFunction)``
+. ``static <T,K,U,M extends ConcurrentMap<K,U>> Collector<T,?,M> toConcurrentMap(Function<? super T,? extends K> keyMapper, Function<? super T,? extends U> valueMapper, BinaryOperator<U> mergeFunction, Supplier<M> mapSupplier)``
+. ``static <T,A,R,RR> Collector<T,A,RR> collectingAndThen(Collector<T,A,R> downstream, Function<R,RR> finisher)``
+
+
+基本上可以认为这些返回Collector的方法都会被应用在Stream.collect()方法中(见<<appxa>>的29行)
+
+``<R,A> R collect(Collector<? super T,A,R> collector)``
+
+可以知道collect返回类型R对应Collectors各个方法的返回结果中第三个泛型类型
+
+<<<
+
+这三个方法用于计算平均值
+
+- ``static <T> Collector<T,?,Double> averagingDouble(ToDoubleFunction<? super T> mapper)``
+- ``static <T> Collector<T,?,Double> averagingInt(ToIntFunction<? super T> mapper)``
+- ``static <T> Collector<T,?,Double> averagingLong(ToLongFunction<? super T> mapper)``
+
+<<<
+
+计算数量，等同于``Stream.count()``
+
+- ``static <T> Collector<T,?,Long> counting()``
+
+<<<
+
+分组：对于stream的T类型元素，应用grouping by操作进行分组，返回结果是``Map<K,List<T>>``
+
+- ``static <T,K> Collector<T,?,Map<K,List<T>>> groupingBy(Function<? super T,? extends K> classifier)``
+- ``static <T,K,A,D> Collector<T,?,Map<K,D>> groupingBy(Function<? super T,? extends K> classifier, Collector<? super T,A,D> downstream)``
+- ``static <T,K,D,A,M extends Map<K,D>> Collector<T,?,M> groupingBy(Function<? super T,? extends K> classifier, Supplier<M> mapFactory, Collector<? super T,A,D> downstream)``
+- ``static <T,K> Collector<T,?,ConcurrentMap<K,List<T>>> groupingByConcurrent(Function<? super T,? extends K> classifier)``
+- ``static <T,K,A,D> Collector<T,?,ConcurrentMap<K,D>> groupingByConcurrent(Function<? super T,? extends K> classifier, Collector<? super T,A,D> downstream)``
+- ``static <T,K,A,D,M extends ConcurrentMap<K,D>> Collector<T,?,M> groupingByConcurrent(Function<? super T,? extends K> classifier, Supplier<M> mapFactory, Collector<? super T,A,D> downstream)``
+
+对于第一个只有一个Function参数的groupingBy方法而言，等同于调用第二个方法``groupingBy(classifier, toList())``
+
+第二个groupingBy方法,返回结果``Map<K,D>``中的D，由指定的downstream返回类型D决定，
+
+.groupBy示例
+====
+[source,java]
+----
+Map<City, Set<String>> namesByCity = 
+  people.stream().collect(groupingBy(Person::getCity,
+        mapping(Person::getLastName, toSet())));
+----
+====
+
+第三个groupingBy与第二个相比，多一个参数``Supplier<M> mapFactory``，用于包装返回的Map为类型``<M>``。
+
+另外三个带Concurrent的groupingBy方法，顾名思义，返回的是java.concurrent包里的集合。
+
+<<<<
+
+拼接: 用于将元素拼接起来
+
+- ``static Collector<CharSequence,?,String> joining()``
+- ``static Collector<CharSequence,?,String> joining(CharSequence delimiter)``
+- ``static Collector<CharSequence,?,String> joining(CharSequence delimiter, CharSequence prefix, CharSequence suffix)``
+
+第一个仅仅是将所有元素连接起来，没有任何连接字符；第二个方法指定一个连接符；第三个方法指定连接符、以及前缀和后缀——前缀和后缀仅仅出现在最终结果的最前面和最后。
+
+<<<
+
+映射:
+
+- ``static <T,U,A,R> Collector<T,?,R> mapping(Function<? super T,? extends U> mapper, Collector<? super U,A,R> downstream)``
+
+.mapping示例
+====
+[source,java]
+----
+
+ Map<City, Set<String>> lastNamesByCity
+     = people.stream().collect(groupingBy(Person::getCity,
+                                          mapping(Person::getLastName, toSet())));
+----
+====
+
+输出
+
+----
+{"LA"=["Jason","Jackson"], "New York"=["Hunt","Wilson"]}
+----
+
+<<<
+
+排序: 最大或最小
+
+- ``static <T> Collector<T,?,Optional<T>> maxBy(Comparator<? super T> comparator)``
+- ``static <T> Collector<T,?,Optional<T>> minBy(Comparator<? super T> comparator)``
+
+<<<
+
+一分为二: 根据判定，将stream一分为二
+
+- ``static <T> Collector<T,?,Map<Boolean,List<T>>> partitioningBy(Predicate<? super T> predicate)``
+- ``static <T,D,A> Collector<T,?,Map<Boolean,D>> partitioningBy(Predicate<? super T> predicate, Collector<? super T,A,D> downstream)``
+
+如何一分为二呢？通过返回一个key为Boolean的Map实现的。
+
+<<<<
+
+化归: 将stream的元素按照某种操作进行化归操作——即集合中的前后元素应用该操作之后继续和接下来的元素应用该操作，例如对一个自然数集合应用加法之类
+
+- ``counting()``等同于``reducing(0L, e -> 1L, Long::sum)``
+- ``minBy()``等同于``reducing(BinaryOperator.minBy(comparator))``
+- ``maxBy()``等同于``reducing(BinaryOperator.maxBy(comparator))``
+
+- ``static <T> Collector<T,?,Optional<T>> reducing(BinaryOperator<T> op)``
+- ``static <T> Collector<T,?,T> reducing(T identity, BinaryOperator<T> op)``
+- ``static <T,U> Collector<T,?,U> reducing(U identity, Function<? super T,? extends U> mapper, BinaryOperator<U> op)``
+
+注意:``BinaryOperator``是一个函数接口(FunctionalInterface)
+
+[source,java]
+----
+@FunctionalInterface
+public interface BinaryOperator<T> extends BiFunction<T,T,T> {
+    public static <T> BinaryOperator<T> minBy(Comparator<? super T> comparator) {
+        Objects.requireNonNull(comparator);
+        return (a, b) -> comparator.compare(a, b) <= 0 ? a : b;
+    }
+
+    public static <T> BinaryOperator<T> maxBy(Comparator<? super T> comparator) {
+        Objects.requireNonNull(comparator);
+        return (a, b) -> comparator.compare(a, b) >= 0 ? a : b;
+    }
+}
+----
+
+可以看到它提供了两个静态方法maxBy和minBy。当然，也可以通过实现BiFunction的apply()方法，提供其他的BinaryOperator。至于BiFunction，请参见另一篇"Lambda表达式及相关"的附录A。
+
+第二个reducing方法，增加一个参数identity，表示对这个identity应用BinaryOperator
+
+第三个reducing方法，在第二个reducing方法之上，多了一个Function，等同于先应用
+Stream.map(Function)再进行Stream.reduce(Object, BinaryOperator)。
+
+<<<
+
+总结: 将stream的每个元素映射为Int, Long, 或Double类型，再转换为summary statistics。
+
+- ``static <T> Collector<T,?,DoubleSummaryStatistics> summarizingDouble(ToDoubleFunction<? super T> mapper)``
+- ``static <T> Collector<T,?,IntSummaryStatistics> summarizingInt(ToIntFunction<? super T> mapper)``
+- ``static <T> Collector<T,?,LongSummaryStatistics> summarizingLong(ToLongFunction<? super T> mapper)``
+
+注意，这三个方法分别对应IntSummaryStatistics, LongSummaryStatistics和DoubleSummaryStatistics。 
+简单地讲，这三个SummaryStatistics返回的是所应用集合的计数count, 算术和sum, 最大值max, 最小值min和平均值average。DoubleSummaryStatistics略有不同。
+
+<<<
+
+求和: 计算集合元素mapper的算术和，包括三种基本类型——Int, Long和Double
+
+- ``static <T> Collector<T,?,Double> summingDouble(ToDoubleFunction<? super T> mapper)``
+- ``static <T> Collector<T,?,Integer> summingInt(ToIntFunction<? super T> mapper)``
+- ``static <T> Collector<T,?,Long> summingLong(ToLongFunction<? super T> mapper)``
+
+相较于上一组返回总结的方法，这一组方法返回的是算术和。比较简单，就不展开说明了。
+
+<<<
+
+转化: 这一组9个接口非常重要，顾名思义，用于转化为指定的集合类型结果
+
+- ``static <T,C extends Collection<T>> Collector<T,?,C> toCollection(Supplier<C> collectionFactory)``
+- ``static <T> Collector<T,?,List<T>> toList()``
+- ``static <T> Collector<T,?,Set<T>> toSet()``
+- ``static <T,K,U> Collector<T,?,Map<K,U>> toMap(Function<? super T,? extends K> keyMapper, Function<? super T,? extends U> valueMapper)``
+- ``static <T,K,U> Collector<T,?,Map<K,U>> toMap(Function<? super T,? extends K> keyMapper, Function<? super T,? extends U> valueMapper, BinaryOperator<U> mergeFunction)``
+- ``static <T,K,U,M extends Map<K,U>> Collector<T,?,M> toMap(Function<? super T,? extends K> keyMapper, Function<? super T,? extends U> valueMapper, BinaryOperator<U> mergeFunction, Supplier<M> mapSupplier)``
+- ``static <T,K,U> Collector<T,?,ConcurrentMap<K,U>> toConcurrentMap(Function<? super T,? extends K> keyMapper, Function<? super T,? extends U> valueMapper)``
+- ``static <T,K,U> Collector<T,?,ConcurrentMap<K,U>> toConcurrentMap(Function<? super T,? extends K> keyMapper, Function<? super T,? extends U> valueMapper, BinaryOperator<U> mergeFunction)``
+- ``static <T,K,U,M extends ConcurrentMap<K,U>> Collector<T,?,M> toConcurrentMap(Function<? super T,? extends K> keyMapper, Function<? super T,? extends U> valueMapper, BinaryOperator<U> mergeFunction, Supplier<M> mapSupplier)``
+
+
+``toCollection(Supplier<C> collectionFactory)``: 将输入元素集中放进一个新集合中，这个集合属于Collection。  
+当然，很贴心地，Collecors提供了两个便捷方法``toList()``和``toSet()``，分别返回ArrayList和HashSet。
+
+接下来的三个方法都是toMap，顾名思义，就是将stream的元素放入一个map并返回。既然是map，就需要key和value。所以，最基本的``toMap(Function keyMapper, Function valueMapper)``需要分别提供对key的映射和对value的映射。
+
+.Collectors.toMap
+====
+[source,java]
+----
+Map<Student, Double> studentToGPA
+    students.stream().collect(toMap(Functions.identity(),        <1>
+                              student -> computeGPA(student)));   
+
+
+Map<String, Student> studentIdToStudent
+    students.stream().collect(toMap(Student::getId,               <2>
+                              Functions.identity());              
+----
+<1> 代表对象本身
+<2> 用到了方法引用(##Method Reference##)
+====
+
+当然，调用这个toMap方法的时候，如果key有重复的(duplicated)的时候，会抛出 ``java.lang.IllegalStateException: Duplicate key``异常
+
+为了解决key重复的情况，需要提供解决办法，于是调用``toMap(Function keyMapper, Function valueMapper, BinaryOperator mergeFunction)``，最后一个参数用于指定合并规则，
+
+.Collectors.toMap
+====
+[source,java]
+----
+Map<String, String> phoneBook
+    people.stream().collect(toMap(Person::getName,
+                            Person::getAddress,
+                            (s, a) -> s + ", " + a));         <1>
+----
+<1> 合并规则
+====
+
+第三个toMap方法，则是在此基础上，提供一个mapSupplier——即map的factory——因为，默认toMap返回的是HashMap，当希望使用其他map的时候，则需要加上第四个参数，
+
+.Collectors.toMap3
+====
+[source,java]
+----
+Map<String, String> phoneBook
+ people.stream().collect(toMap(Person::getName,
+                        Person::getAddress,
+                        (s, a) -> s + ", " + a,
+                        TreeMap::new));                 <1>
+----
+<1> 指定Map的构造方法，此处是TreeMap
+====
+
+<<<
+
+最后，``collectingAndThen(Collector downStream, Function finisher)``会额外做一个转化，将一个Collector转化为另一种类型，
+
+Collectors.toMap2
+====
+[source,java]
+----
+List<String> people
+     = people.stream().collect(collectingAndThen(toList(), Collections::unmodifiableList));
+----
+====

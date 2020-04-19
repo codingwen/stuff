@@ -1,0 +1,87 @@
+= Optional介绍
+
+可以看到stream的一些terminal操作返回结果是Optional类型，那么来看一看Optional类。
+
+``Optional<T>``位于java.util包下，同级同时提供OptionalInt,OptionalLong,OptionalDouble三个基本类型类。
+Optional是一个包装类，可能包含或者不包含非空对象。如果存在非空对象，那么``isPresent()``返回true，``get()``返回被包含对象。
+
+== construction
+
+根据API文档，看到Optional提供了3个用于构造Optional的静态方法
+
+- ``static <T> Optional<T> empty()``
+- ``static <T> Optional<T> of(T value)``
+- ``static <T> Optional<T> ofNullable(T value)``
+
+``empty()``直接返回一个空的Optional对象，而``of(T value)``返回包含一个非空对象的Optional对象，如果value为空的话，会抛出NPE异常；所以，如果不确定需要被包装的对象是否为空的话，应当使用``ofNullable(T value)``，如果被包装对象是null的话，它返回的是一个空的Optional(调用``empty()``)方法。
+
+== consume
+
+那么，如果使用Optional呢？先看几个方法
+
+- ``T get()``: 返回被包装的对象，如果对象为空，则会抛##NoSuchElementException##异常
+- ``void ifPresent(Consumer<? super T> consumer)``: 如果对象存在，则进行操作，否则什么都不发生
+- ``T orElse(T other)``: 如果对象不为空，返回对象，否则，调用并返回other
+- ``T orElseGet(Supplier<? extends T> other)``: 如果对象不为空，返回对象，否则，调用并返回other的结果
+- ``<X extends Throwable> T orElseThrow(Supplier<? extends X> exceptionSupplier) throws X extends Throwable``: 如果对象不为空，返回对象；否则，抛出provider创建的异常
+
+其中，orElse和orElseGet不容易区分。通过一个简单的例子进行对比
+
+
+
+.包装对象不为空
+====
+[source,java]
+----
+  String str = "bar";
+  Optional<String> op2 = Optional.ofNullable(str);
+  System.out.println(op2.orElse(foo()));
+  System.out.println(op2.orElseGet(() -> foo()));
+----
+====
+
+输出
+
+----
+> foo...
+bar
+bar
+----
+
+.包装对象为空
+====
+[source,java]
+----
+  String str = "bar";
+  str = null;
+  Optional<String> op2 = Optional.ofNullable(str);
+  System.out.println(op2.orElse(foo()));
+  System.out.println(op2.orElseGet(() -> foo()));
+----
+====
+
+输出
+
+----
+> foo...
+foo
+foo...
+foo
+----
+
+可以看到，不论被包装对象是否存在，orElseGet都仅仅返回最终对象；而orElse在被包装对象不为空的时候，会调用并执行替代方法。
+
+== filter|map
+
+- ``Optional<T> filter(Predicate<? super T> predicate)``
+- ``<U> Optional<U> map(Function<? super T,? extends U> mapper)``
+- ``<U> Optional<U> flatMap(Function<? super T,Optional<U>> mapper)``
+
+可以看到，Optional支持过滤和映射操作。
+
+需要注意的是map操作，API文档，
+
+[quote, API文档]
+--
+This method supports post-processing on optional values...
+--

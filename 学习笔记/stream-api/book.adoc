@@ -1,0 +1,48 @@
+= Stream API
+Wen
+:doctype: docbook
+:encoding: utf-8
+:lang: cn
+:toc: left
+:toc-level: 4
+:toc-title: 目录
+:sectnums:
+:nofooter:
+:last-update-label!:
+:icons: font
+:appendix-caption: 附录
+:official: link:https://docs.oracle.com/javase/tutorial/java/javaOO/lambdaexpressions.html[官方lambda文档, window="_blank"]
+
+更多资料参考{official}
+
+////
+概览 
+////
+include::chp01.adoc[leveloffset=+1]
+
+////
+常用操作 
+////
+include::chp02.adoc[leveloffset=+1]
+
+////
+构造方法 
+////
+include::chp03.adoc[leveloffset=+1]
+
+////
+Numberic
+////
+include::chp04.adoc[leveloffset=+1]
+
+[#appxa, reftext=附录A]
+[appendix]
+include::appdx01.adoc[leveloffset=+1]
+
+[#appxb, reftext=附录B]
+[appendix]
+include::appdx02.adoc[leveloffset=+1]
+
+[#appxc, reftext=附录C]
+[appendix]
+include::appdx03.adoc[leveloffset=+1]

@@ -1,0 +1,75 @@
+= Numeric Streams
+
+通过官方文档，可以看到和Stream接口并列的还有三个支持基本类型的接口。
+
+.主要stream类的层次
+----
+- java.util.stream.BaseStream<T,S>
+  | - java.util.stream.DoubleStream
+  | - java.util.stream.IntStream
+  | - java.util.stream.LongStream
+  | - java.util.stream.Stream<T>
+----
+
+== IntStream
+
+通过文档，可以看到一些操作诸如``allMatch(IntPredicate predicate)``,``concat(IntStream a, IntStream b)``之类，和Stream类相比，方法名称相同，只是参数适配Integer类型，那么其实作用和用法都是一样的，就不必细究。主要看一下真正不同于Stream的一些方法
+
+- ``DoubleStream asDoubleStream()``
+- ``LongStream asLongStream()``
+- ``OptionalDouble average()``
+- ``Stream<Integer> boxed()``
+- ``<U> Stream<U> mapToObj(IntFunction<? extends U> mapper)``
+- ``static IntStream	range(int startInclusive, int endExclusive)``
+- ``static IntStream	rangeClosed(int startInclusive, int endInclusive)``
+- ``Spliterator.OfInt spliterator()``
+- ``int sum()``
+- ``IntSummaryStatistics summaryStatistics()``
+
+=== boxed
+
+根据API文档，这个方法返回Stream，每个元素都会被boxes to Integer
+
+=== range|rangeClosed
+
+这两个静态方法根据两个值之间的连续整数生成一个stream，两个方法的startInclusive都是inclusive的，而endExclusive一个是exclusive的，一个是inclusive的
+
+=== spliterator
+
+返回一个Spliterator.OfInt类型
+
+=== summaryStatistics
+
+返回的类型IntSummaryStatistics是一个统计类，提供count,min,max,sum,average等指标。
+
+=== construction
+
+除了和Stream相似的一些Stream类的构造方法外，还有一些构造IntStream的方法，根据API文档，主要有
+
+- ``CharSequence.chars()``
+- ``CharSequence.codePoints()``
+- ``CharBuffer.chars()``
+- ``Random.ints()``
+- ``SplittableRandom.ints()``
+- ``BitSet.stream()``
+- ``ThreadLocalRandom.ints()``
+
+== LongStream
+
+和IntStream类似，只有asDoubleStream方法
+
+=== construction
+
+- ``Random.longs()``
+- ``SplittableRandom.longs()``
+- ``ThreadLocalRandom.longs()``
+
+== DoubleStream
+
+没有range和rangeClosed方法，没有asXXXStream方法
+
+=== construction
+
+- ``Random.doubles()``
+- ``SplittableRandom.doubles()``
+- ``ThreadLocalRandom.doubles()``
